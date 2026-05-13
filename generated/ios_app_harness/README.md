@@ -4,6 +4,8 @@ This is the v0.1 harness distilled from the reviewed Research Cleaning Harness a
 
 It intentionally starts as a docs-first, evidence-backed operating layer for Codex and other coding agents working on an iOS app. Runtime enforcement is version-gated: v0.1 is rules and task discipline, v0.5 adds scripts, v1.0 adds stronger interception/replay.
 
+For a from-zero learning path, read `../../LEARNER_GUIDE.md` first.
+
 ## Data Basis
 
 | metric | count |

@@ -29,6 +29,7 @@ Machine-readable outputs:
 
 | path | purpose |
 |---|---|
+| `LEARNER_GUIDE.md` | from-zero guide for learning and applying the harness |
 | `STATE.md` | current phase, completed frameworks, next framework |
 | `TASKS.md` | task history and acceptance notes |
 | `SOURCE_INVENTORY.md` | indexed raw files and processing status |
@@ -80,6 +81,7 @@ AppleDouble metadata files named `._*` are ignored by validators and `.gitignore
 
 Review and adapt the generated lightweight harness against a real iOS app repo:
 
-1. Start at `generated/ios_app_harness/README.md`.
-2. Use `output/ios_harness_mapping/source_to_harness_trace.md` to audit how each Source Card influenced the harness.
-3. Copy/adapt v0.1 docs before enabling v0.5 scripts or v1.0 runtime ideas.
+1. Start at `LEARNER_GUIDE.md`.
+2. Then read `generated/ios_app_harness/README.md`.
+3. Use `output/ios_harness_mapping/source_to_harness_trace.md` to audit how each Source Card influenced the harness.
+4. Copy/adapt v0.1 docs before enabling v0.5 scripts or v1.0 runtime ideas.
