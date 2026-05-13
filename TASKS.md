@@ -596,3 +596,51 @@ result:
 
 processed_files:
   - F_SWE_001-F_SWE_029 -> output/source_cards/swe-agent/
+
+## TASK-028: Generate lightweight iOS App Harness from clean data
+
+status: completed
+framework: cross-framework
+
+goal:
+Synthesize the reviewed Source Cards and normalized mechanism index into a lightweight iOS App Harness that fuses the strongest transferable parts of all five frameworks.
+
+allowed_read:
+  - output/data/source_cards.jsonl
+  - output/data/mechanisms.jsonl
+  - output/conflicts/
+  - output/source_cards/
+
+allowed_write:
+  - generated/ios_app_harness/
+  - output/frameworks/
+  - output/mechanisms/
+  - output/failure_modes/
+  - output/ios_harness_mapping/
+  - scripts/build_ios_app_harness.py
+  - STATE.md
+  - TASKS.md
+  - PROGRESS.md
+  - VALIDATION_LOG.md
+
+forbidden:
+  - modifying raw/
+  - using raw files as runtime context
+  - claiming v1.0 runtime interception or App Store upload automation
+
+acceptance:
+  - generated harness contains v0.1 operating docs, templates, and lightweight ACI helper scripts
+  - every reviewed Source Card maps to at least one harness file
+  - framework summaries exist for all five frameworks
+  - mechanism docs and failure-mode docs are generated from clean mechanisms
+  - generated harness validates successfully
+  - original cleaning validators still pass
+
+result:
+  - generated harness path: generated/ios_app_harness/
+  - Source Card traces: 134/134
+  - mechanism target rows: 629
+  - framework summaries: 5/5
+  - mechanism group docs: 7
+  - failure mode docs: 25
+  - validation: pass

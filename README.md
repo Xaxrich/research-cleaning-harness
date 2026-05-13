@@ -22,6 +22,8 @@ Machine-readable outputs:
 |---|---:|
 | `output/data/source_cards.jsonl` | 134 |
 | `output/data/mechanisms.jsonl` | 625 |
+| `generated/ios_app_harness/data/mechanism_targets.jsonl` | 629 |
+| `generated/ios_app_harness/data/source_to_harness_trace.jsonl` | 134 |
 
 ## Repository Contents
 
@@ -35,6 +37,11 @@ Machine-readable outputs:
 | `output/source_cards/` | reviewed Source Cards, one per raw file |
 | `output/reviews/source_cards/` | review records for Source Cards |
 | `output/conflicts/` | framework conflict ledgers |
+| `output/frameworks/` | framework summaries generated from reviewed Source Cards |
+| `output/mechanisms/` | cross-framework mechanism group docs |
+| `output/failure_modes/` | failure-mode guard docs |
+| `output/ios_harness_mapping/` | file placement, scope and Codex handoff mapping |
+| `generated/ios_app_harness/` | lightweight fused iOS App Harness v0.1 |
 | `output/data/` | JSONL/YAML machine-readable indexes |
 | `scripts/` | inventory, generation and validation scripts |
 | `tests/` | unit tests for validators and inventory logic |
@@ -44,6 +51,7 @@ Machine-readable outputs:
 Fresh validation commands run during the latest confirmation:
 
 ```bash
+python3 research_cleaning_harness/generated/ios_app_harness/scripts/validate_harness.py
 python3 research_cleaning_harness/scripts/validate_source_cards.py
 python3 research_cleaning_harness/scripts/validate_yaml.py
 python3 research_cleaning_harness/scripts/validate_clean_data.py
@@ -53,6 +61,7 @@ python3 -m unittest discover research_cleaning_harness/tests
 Expected current results:
 
 ```text
+validated ios_app_harness, failures: 0
 validated 134 source card(s), failures: 0
 validated 1 yaml file(s), failures: 0
 validated clean data, failures: 0
@@ -69,8 +78,8 @@ AppleDouble metadata files named `._*` are ignored by validators and `.gitignore
 
 ## Next Work
 
-Run one synthesis stage at a time:
+Review and adapt the generated lightweight harness against a real iOS app repo:
 
-1. Framework summaries.
-2. Cross-framework mechanism synthesis.
-3. iOS Harness mapping and Codex handoff pack.
+1. Start at `generated/ios_app_harness/README.md`.
+2. Use `output/ios_harness_mapping/source_to_harness_trace.md` to audit how each Source Card influenced the harness.
+3. Copy/adapt v0.1 docs before enabling v0.5 scripts or v1.0 runtime ideas.

@@ -106,3 +106,38 @@ inventory_status {
   ('swe-agent', 'reviewed'): 29
 }
 ```
+
+## 2026-05-13 Lightweight iOS Harness Generation Check
+
+Fresh commands executed from `/Volumes/xtaxrich/03-TEMPLATES/xtaxharness`:
+
+```bash
+python3 research_cleaning_harness/generated/ios_app_harness/scripts/validate_harness.py
+python3 research_cleaning_harness/scripts/validate_source_cards.py
+python3 research_cleaning_harness/scripts/validate_yaml.py
+python3 research_cleaning_harness/scripts/validate_clean_data.py
+python3 -m unittest discover research_cleaning_harness/tests
+```
+
+Observed output:
+
+```text
+validated ios_app_harness, failures: 0
+validated 134 source card(s), failures: 0
+validated 1 yaml file(s), failures: 0
+validated clean data, failures: 0
+Ran 14 tests in 0.045s
+OK
+```
+
+Additional audit:
+
+```text
+source_traces 134 {'gstack': 40, 'aider': 39, 'swe-agent': 29, 'superpowers': 14, 'gsd2': 12}
+mechanism_target_rows 629 {'gstack': 160, 'aider': 156, 'swe-agent': 116, 'superpowers': 101, 'gsd2': 96}
+generated_harness_files 41
+mapped_harness_files 94
+framework_summaries 5
+mechanism_group_docs 7
+failure_mode_docs 25
+```

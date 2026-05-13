@@ -1,6 +1,6 @@
 # STATE
 
-phase: all_source_cards_reviewed
+phase: lightweight_ios_harness_generated
 current_framework: none
 current_file_id: none
 raw_root: raw/
@@ -42,14 +42,18 @@ blocked:
   - GitHub public upload is blocked until `gh auth login -h github.com` refreshes the invalid token for account `Xaxrich`.
 
 next:
-  - run full validation after SWE-agent cleaning
-  - begin framework summaries one framework at a time
-  - then synthesize mechanisms and iOS Harness mapping
+  - review generated lightweight harness for project-specific iOS repo assumptions
+  - use `generated/ios_app_harness/` as the v0.1 starting point
+  - only move v0.5 scripts/runtime into a real app repo after task-level validation
 
 notes:
   - Superpowers, GSD2, Aider, gstack, and SWE-agent Source Cards are reviewed and indexed in `output/data/source_cards.jsonl`.
   - gstack has 40 reviewed Source Cards, 40 review files, and `output/conflicts/gstack_conflicts.md`.
   - SWE-agent has 29 reviewed Source Cards, 29 review files, and `output/conflicts/swe_agent_conflicts.md`.
   - `output/data/mechanisms.jsonl` currently contains 625 mechanism records.
+  - Lightweight iOS Harness generated at `generated/ios_app_harness/`.
+  - Framework summaries, mechanism docs, failure mode docs, and iOS mapping docs are generated from clean outputs.
+  - `generated/ios_app_harness/data/source_to_harness_trace.jsonl` covers all 134 reviewed Source Cards.
+  - `generated/ios_app_harness/data/mechanism_targets.jsonl` contains 629 mechanism target rows.
   - AppleDouble metadata files named `._*` are ignored but not deleted.
   - Local git repository has been initialized in `research_cleaning_harness/`; the sibling `raw/` directory is outside the repo scope.
