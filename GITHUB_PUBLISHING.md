@@ -28,6 +28,17 @@ github.com
 
 Until GitHub authentication is refreshed, this agent cannot create or push a public repository from the local machine.
 
+## Local Project Status
+
+The local Git project is prepared:
+
+```text
+repository: research_cleaning_harness/
+latest local commit: 30eb9a7 Add research cleaning harness
+working tree: clean after commit
+published to GitHub: no
+```
+
 ## Publish Commands After Auth
 
 From the parent workspace:
