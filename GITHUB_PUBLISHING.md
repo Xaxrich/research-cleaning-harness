@@ -46,9 +46,7 @@ From the parent workspace:
 
 ```bash
 cd research_cleaning_harness
-git init
-git add .
-git commit -m "Add research cleaning harness"
+git status --short
 gh repo create research-cleaning-harness --public --source=. --remote=origin --push
 ```
 
