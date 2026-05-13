@@ -34,7 +34,8 @@ The local Git project is prepared:
 
 ```text
 repository: research_cleaning_harness/
-latest local commit: 30eb9a7 Add research cleaning harness
+latest local commit: 6edceb7 Record GitHub publishing blocker
+initial project commit: 30eb9a7 Add research cleaning harness
 working tree: clean after commit
 published to GitHub: no
 ```
