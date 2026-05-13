@@ -39,7 +39,7 @@ in_progress:
   - none
 
 blocked:
-  - GitHub public upload is blocked until `gh auth login -h github.com` refreshes the invalid token for account `Xaxrich`.
+  - none
 
 next:
   - review generated lightweight harness for project-specific iOS repo assumptions
@@ -57,3 +57,5 @@ notes:
   - `generated/ios_app_harness/data/mechanism_targets.jsonl` contains 629 mechanism target rows.
   - AppleDouble metadata files named `._*` are ignored but not deleted.
   - Local git repository has been initialized in `research_cleaning_harness/`; the sibling `raw/` directory is outside the repo scope.
+  - Public GitHub repo is published at `git@github.com:Xaxrich/research-cleaning-harness.git`.
+  - GitHub CLI API auth remains invalid, but SSH push works with `/Users/a58/.ssh/id_ed25519_xtaxharness_github`.

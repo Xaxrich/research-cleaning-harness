@@ -14,19 +14,21 @@ Do not publish the sibling `raw/` directory by default.
 
 Reason: `raw/` is immutable evidence and may include unreviewed research material. The public project should expose cleaned assets, schemas, validators and progress state.
 
-## Current Blocker
+## Published Repository
 
-`gh` is installed, but authentication is not currently valid:
+Public repository:
 
 ```text
-gh auth status
-github.com
-  X Failed to log in to github.com account Xaxrich (default)
-  - The token in default is invalid.
-  - To re-authenticate, run: gh auth login -h github.com
+https://github.com/Xaxrich/research-cleaning-harness
 ```
 
-Until GitHub authentication is refreshed, this agent cannot create or push a public repository from the local machine.
+Remote:
+
+```text
+git@github.com:Xaxrich/research-cleaning-harness.git
+```
+
+The repository was created with `gh repo create` and pushed with SSH because HTTPS push failed and `gh auth status` still reports an invalid API token.
 
 ## Local Project Status
 
@@ -35,25 +37,18 @@ The local Git project is prepared:
 ```text
 repository: research_cleaning_harness/
 initial project commit: 30eb9a7 Add research cleaning harness
-publishing blocker: recorded in local Git history
-working tree: clean after commit
-published to GitHub: no
+publish commit: a3957a7 Generate lightweight iOS app harness
+published to GitHub: yes
 ```
 
-## Publish Commands After Auth
+## Push Command
 
 From the parent workspace:
 
 ```bash
 cd research_cleaning_harness
 git status --short
-gh repo create research-cleaning-harness --public --source=. --remote=origin --push
-```
-
-If the repository should belong to an organization, use:
-
-```bash
-gh repo create ORG/research-cleaning-harness --public --source=. --remote=origin --push
+GIT_SSH_COMMAND='ssh -i ~/.ssh/id_ed25519_xtaxharness_github -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new' git push
 ```
 
 ## Pre-Publish Checks

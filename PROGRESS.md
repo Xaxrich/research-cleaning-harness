@@ -30,6 +30,7 @@ Generated iOS Harness target rows: 629
 - Added validation scripts and unit tests for Source Card schema, YAML, clean-data consistency and inventory behavior.
 - Generated a lightweight fused iOS App Harness from the clean mechanism index.
 - Generated framework summaries, mechanism group docs, failure-mode docs and iOS Harness mapping docs.
+- Published the project to public GitHub via SSH.
 
 ## Current Clean Outputs
 
@@ -66,7 +67,11 @@ Latest fresh validation performed after lightweight iOS Harness generation:
 ## Known Boundaries
 
 - Runtime claims such as SQLite state backend, autonomous dispatch, worker lease, MCP runtime and automatic repo-map enforcement are not implemented. They remain future mapping candidates.
-- The project is not currently uploaded to GitHub because local `gh auth status` reports an invalid token for account `Xaxrich`.
+- GitHub CLI API auth still reports an invalid token for account `Xaxrich`; repository push currently uses SSH.
+
+## GitHub
+
+Public repository: `https://github.com/Xaxrich/research-cleaning-harness`
 
 ## Next Step
 
