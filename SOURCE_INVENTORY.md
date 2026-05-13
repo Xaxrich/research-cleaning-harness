@@ -1,0 +1,140 @@
+# SOURCE INVENTORY
+
+Scope: indexed research framework files. AppleDouble `._*` metadata files are ignored, not modified.
+
+| source_id | framework | raw_path | file_type | estimated_topic | status | output_card |
+|---|---|---|---|---|---|---|
+| F_SUP_001 | superpowers | raw/Kimi_Agent_Superpowers 体系探究/00_final_report.md | markdown | Superpowers 框架研究及 iOS Harness 迁移综合报告 | reviewed | output/source_cards/superpowers/F_SUP_001_00_final_report.md |
+| F_SUP_002 | superpowers | raw/Kimi_Agent_Superpowers 体系探究/01_superpowers_anatomy_report.md | markdown | Superpowers 框架解剖报告 | reviewed | output/source_cards/superpowers/F_SUP_002_01_superpowers_anatomy_report.md |
+| F_SUP_003 | superpowers | raw/Kimi_Agent_Superpowers 体系探究/02_superpowers_design_logic.md | markdown | Superpowers 框架设计逻辑深度分析报告 | reviewed | output/source_cards/superpowers/F_SUP_003_02_superpowers_design_logic.md |
+| F_SUP_004 | superpowers | raw/Kimi_Agent_Superpowers 体系探究/03_ios_harness_migration.md | markdown | iOS App Harness: Superpowers 框架迁移设计 | reviewed | output/source_cards/superpowers/F_SUP_004_03_ios_harness_migration.md |
+| F_SUP_005 | superpowers | raw/Kimi_Agent_Superpowers 体系探究/04_skeptic_review.md | markdown | Superpowers 框架批判性审查报告 | reviewed | output/source_cards/superpowers/F_SUP_005_04_skeptic_review.md |
+| F_SUP_006 | superpowers | raw/Kimi_Agent_Superpowers 体系探究/05_learning_path.md | markdown | Superpowers 框架 3 天精通学习路径 | reviewed | output/source_cards/superpowers/F_SUP_006_05_learning_path.md |
+| F_SUP_007 | superpowers | raw/Kimi_Agent_Superpowers 体系探究/AGENTS.md | markdown | AGENTS.md - iOS App 项目助手入口 | reviewed | output/source_cards/superpowers/F_SUP_007_AGENTS.md |
+| F_SUP_008 | superpowers | raw/Kimi_Agent_Superpowers 体系探究/docs/agent/STATE.md | markdown | STATE.md - 项目当前状态 | reviewed | output/source_cards/superpowers/F_SUP_008_docs_agent_STATE.md |
+| F_SUP_009 | superpowers | raw/Kimi_Agent_Superpowers 体系探究/docs/agent/TASKS.md | markdown | TASKS.md - 任务队列与执行历史 | reviewed | output/source_cards/superpowers/F_SUP_009_docs_agent_TASKS.md |
+| F_SUP_010 | superpowers | raw/Kimi_Agent_Superpowers 体系探究/plan.md | markdown | Superpowers → iOS Harness 迁移项目计划 | reviewed | output/source_cards/superpowers/F_SUP_010_plan.md |
+| F_SUP_011 | superpowers | raw/Kimi_Agent_Superpowers 体系探究/skills/app-store-release/SKILL.md | markdown | app-store-release | reviewed | output/source_cards/superpowers/F_SUP_011_skills_app_store_release_SKILL.md |
+| F_SUP_012 | superpowers | raw/Kimi_Agent_Superpowers 体系探究/skills/mobile-tdd/SKILL.md | markdown | mobile-tdd | reviewed | output/source_cards/superpowers/F_SUP_012_skills_mobile_tdd_SKILL.md |
+| F_SUP_013 | superpowers | raw/Kimi_Agent_Superpowers 体系探究/skills/root-cause-debugging/SKILL.md | markdown | root-cause-debugging | reviewed | output/source_cards/superpowers/F_SUP_013_skills_root_cause_debugging_SKILL.md |
+| F_SUP_014 | superpowers | raw/Kimi_Agent_Superpowers 体系探究/superpowers_architecture.png | image | architecture diagram | reviewed | output/source_cards/superpowers/F_SUP_014_superpowers_architecture.md |
+| F_GSD_001 | gsd2 | raw/Kimi_Agent_多 Agent GSD2/GSD2_深度研究_iOS_Harness_迁移报告.md | markdown | GSD2 技术报告：阶段 1-3 | reviewed | output/source_cards/gsd2/F_GSD_001_GSD2_深度研究_iOS_Harness_迁移报告.md |
+| F_GSD_002 | gsd2 | raw/Kimi_Agent_多 Agent GSD2/GSD2深度研究_iOS_Harness迁移方案.docx | document | GSD2深度研究 iOS Harness迁移方案 | reviewed | output/source_cards/gsd2/F_GSD_002_GSD2深度研究_iOS_Harness迁移方案.md |
+| F_GSD_003 | gsd2 | raw/Kimi_Agent_多 Agent GSD2/plan.md | markdown | GSD2 深度研究 → iOS Harness 迁移计划 | reviewed | output/source_cards/gsd2/F_GSD_003_plan.md |
+| F_GSD_004 | gsd2 | raw/Kimi_Agent_多 Agent GSD2/report_stages_10_11.md | markdown | GSD2 技术报告：阶段 10-11 — iOS Harness 架构迁移与 Superpowers 组合方案 | reviewed | output/source_cards/gsd2/F_GSD_004_report_stages_10_11.md |
+| F_GSD_005 | gsd2 | raw/Kimi_Agent_多 Agent GSD2/report_stages_12_13_14.md | markdown | GSD2 技术报告 —— 阶段 12-14：学习路径、交付物清单与输出风格 | reviewed | output/source_cards/gsd2/F_GSD_005_report_stages_12_13_14.md |
+| F_GSD_006 | gsd2 | raw/Kimi_Agent_多 Agent GSD2/report_stages_1_2_3.md | markdown | GSD2 技术报告：阶段 1-3 | reviewed | output/source_cards/gsd2/F_GSD_006_report_stages_1_2_3.md |
+| F_GSD_007 | gsd2 | raw/Kimi_Agent_多 Agent GSD2/report_stages_4_5_6.md | markdown | GSD2 技术报告：阶段 4-6 | reviewed | output/source_cards/gsd2/F_GSD_007_report_stages_4_5_6.md |
+| F_GSD_008 | gsd2 | raw/Kimi_Agent_多 Agent GSD2/report_stages_7_8_9.md | markdown | GSD2 技术报告：阶段 7-9 — 失败恢复、Git 管理与验证门禁 | reviewed | output/source_cards/gsd2/F_GSD_008_report_stages_7_8_9.md |
+| F_GSD_009 | gsd2 | raw/Kimi_Agent_多 Agent GSD2/research_architecture.md | markdown | GSD2 核心架构深度分析报告 | reviewed | output/source_cards/gsd2/F_GSD_009_research_architecture.md |
+| F_GSD_010 | gsd2 | raw/Kimi_Agent_多 Agent GSD2/research_context.md | markdown | GSD2 上下文管理机制深度研究报告 | reviewed | output/source_cards/gsd2/F_GSD_010_research_context.md |
+| F_GSD_011 | gsd2 | raw/Kimi_Agent_多 Agent GSD2/research_failure_recovery.md | markdown | GSD2 失败恢复、Stuck Detection 与 Git 管理深度研究报告 | reviewed | output/source_cards/gsd2/F_GSD_011_research_failure_recovery.md |
+| F_GSD_012 | gsd2 | raw/Kimi_Agent_多 Agent GSD2/research_model_routing.md | markdown | GSD2 动态模型路由与复杂度分类深度研究报告 | reviewed | output/source_cards/gsd2/F_GSD_012_research_model_routing.md |
+| F_AID_001 | aider | raw/Kimi_Agent_Aider 代码库方案/plan.md | markdown | Aider → iOS Harness 迁移研究计划 | reviewed | output/source_cards/aider/F_AID_001_plan.md |
+| F_AID_002 | aider | raw/Kimi_Agent_Aider 代码库方案/stage1_aider_overview.md | markdown | Aider 底层设计问题与框架对比 — 阶段一研究报告 | reviewed | output/source_cards/aider/F_AID_002_stage1_aider_overview.md |
+| F_AID_003 | aider | raw/Kimi_Agent_Aider 代码库方案/stage1_docs_analysis.md | markdown | Aider 官方文档深度分析报告 | reviewed | output/source_cards/aider/F_AID_003_stage1_docs_analysis.md |
+| F_AID_004 | aider | raw/Kimi_Agent_Aider 代码库方案/stage1_file_selection.md | markdown | Aider 文件选择与上下文管理机制深度分析 | reviewed | output/source_cards/aider/F_AID_004_stage1_file_selection.md |
+| F_AID_005 | aider | raw/Kimi_Agent_Aider 代码库方案/stage1_git_integration.md | markdown | Aider Git 集成机制深度分析 | reviewed | output/source_cards/aider/F_AID_005_stage1_git_integration.md |
+| F_AID_006 | aider | raw/Kimi_Agent_Aider 代码库方案/stage1_lint_test_loop.md | markdown | Aider Lint/Test 验证闭环机制深度分析 | reviewed | output/source_cards/aider/F_AID_006_stage1_lint_test_loop.md |
+| F_AID_007 | aider | raw/Kimi_Agent_Aider 代码库方案/stage1_repo_structure.md | markdown | Aider 仓库结构分析报告 | reviewed | output/source_cards/aider/F_AID_007_stage1_repo_structure.md |
+| F_AID_008 | aider | raw/Kimi_Agent_Aider 代码库方案/stage1_repopmap_deep.md | markdown | Aider Repo Map 机制深度分析 | reviewed | output/source_cards/aider/F_AID_008_stage1_repopmap_deep.md |
+| F_AID_009 | aider | raw/Kimi_Agent_Aider 代码库方案/stage1_skeptic_analysis.md | markdown | Aider 机制批判性分析报告：iOS Harness 适配性评估 | reviewed | output/source_cards/aider/F_AID_009_stage1_skeptic_analysis.md |
+| F_AID_010 | aider | raw/Kimi_Agent_Aider 代码库方案/stage2_concepts_analysis.md | markdown | Aider 核心概念深度分析报告（Stage 2） | reviewed | output/source_cards/aider/F_AID_010_stage2_concepts_analysis.md |
+| F_AID_011 | aider | raw/Kimi_Agent_Aider 代码库方案/stage2_context_index.md | markdown | CONTEXT_INDEX.md —— iOS Harness 项目上下文索引 | reviewed | output/source_cards/aider/F_AID_011_stage2_context_index.md |
+| F_AID_012 | aider | raw/Kimi_Agent_Aider 代码库方案/stage2_conventions.md | markdown | iOS Harness 规则文件分层体系设计 | reviewed | output/source_cards/aider/F_AID_012_stage2_conventions.md |
+| F_AID_013 | aider | raw/Kimi_Agent_Aider 代码库方案/stage2_file_scope_rules.md | markdown | FILE_SCOPE_RULES.md — iOS Harness 文件范围控制规范 | reviewed | output/source_cards/aider/F_AID_013_stage2_file_scope_rules.md |
+| F_AID_014 | aider | raw/Kimi_Agent_Aider 代码库方案/stage2_git_atomic_commit.md | markdown | GIT_ATOMIC_COMMIT.md — Flutter + Firebase + Swift iOS Harness 原子提交规范 | reviewed | output/source_cards/aider/F_AID_014_stage2_git_atomic_commit.md |
+| F_AID_015 | aider | raw/Kimi_Agent_Aider 代码库方案/stage2_lint_test_loop.md | markdown | iOS Harness 验证闭环设计文档 | reviewed | output/source_cards/aider/F_AID_015_stage2_lint_test_loop.md |
+| F_AID_016 | aider | raw/Kimi_Agent_Aider 代码库方案/stage2_weak_model_rules.md | markdown | iOS Harness 弱模型执行规则体系 | reviewed | output/source_cards/aider/F_AID_016_stage2_weak_model_rules.md |
+| F_AID_017 | aider | raw/Kimi_Agent_Aider 代码库方案/stage3_integration_design.md | markdown | iOS Harness 四框架组合方案：Superpowers + GSD2 + gstack + Aider | reviewed | output/source_cards/aider/F_AID_017_stage3_integration_design.md |
+| F_AID_018 | aider | raw/Kimi_Agent_Aider 代码库方案/stage3_learning_path.md | markdown | Aider → iOS Harness 3 天学习路径 | reviewed | output/source_cards/aider/F_AID_018_stage3_learning_path.md |
+| F_AID_019 | aider | raw/Kimi_Agent_Aider 代码库方案/stage3_migration_design.md | markdown | Aider → iOS App Store Harness 迁移设计方案 | reviewed | output/source_cards/aider/F_AID_019_stage3_migration_design.md |
+| F_AID_020 | aider | raw/Kimi_Agent_Aider 代码库方案/交付物10_CONVENTIONS.md模板.md | markdown | 一、命名规范 | reviewed | output/source_cards/aider/F_AID_020_交付物10_CONVENTIONS_md模板.md |
+| F_AID_021 | aider | raw/Kimi_Agent_Aider 代码库方案/交付物11_FLUTTER_CONVENTIONS.md模板.md | markdown | 一、状态管理（Riverpod） | reviewed | output/source_cards/aider/F_AID_021_交付物11_FLUTTER_CONVENTIONS_md模板.md |
+| F_AID_022 | aider | raw/Kimi_Agent_Aider 代码库方案/交付物12_FIREBASE_CONVENTIONS.md模板.md | markdown | 一、Firestore数据模型 | reviewed | output/source_cards/aider/F_AID_022_交付物12_FIREBASE_CONVENTIONS_md模板.md |
+| F_AID_023 | aider | raw/Kimi_Agent_Aider 代码库方案/交付物13_IOS_NATIVE_CONVENTIONS.md模板.md | markdown | 一、Swift语言规范 | reviewed | output/source_cards/aider/F_AID_023_交付物13_IOS_NATIVE_CONVENTIONS_md模板.md |
+| F_AID_024 | aider | raw/Kimi_Agent_Aider 代码库方案/交付物14_GIT_ATOMIC_COMMIT.md模板.md | markdown | GIT_ATOMIC_COMMIT.md — Flutter + Firebase + Swift iOS Harness 原子提交规范 | reviewed | output/source_cards/aider/F_AID_024_交付物14_GIT_ATOMIC_COMMIT_md模板.md |
+| F_AID_025 | aider | raw/Kimi_Agent_Aider 代码库方案/交付物15_LINT_TEST_LOOP.md模板.md | markdown | iOS Harness 验证闭环设计文档 | reviewed | output/source_cards/aider/F_AID_025_交付物15_LINT_TEST_LOOP_md模板.md |
+| F_AID_026 | aider | raw/Kimi_Agent_Aider 代码库方案/交付物16_WEAK_MODEL_RULES.md模板.md | markdown | iOS Harness 弱模型执行规则体系 | reviewed | output/source_cards/aider/F_AID_026_交付物16_WEAK_MODEL_RULES_md模板.md |
+| F_AID_027 | aider | raw/Kimi_Agent_Aider 代码库方案/交付物17_context_pack_sh设计说明.md | markdown | scripts/agent/context_pack.sh 设计说明 | reviewed | output/source_cards/aider/F_AID_027_交付物17_context_pack_sh设计说明.md |
+| F_AID_028 | aider | raw/Kimi_Agent_Aider 代码库方案/交付物18_弱模型文件范围任务卡模板.md | markdown | 弱模型文件范围任务卡模板 | reviewed | output/source_cards/aider/F_AID_028_交付物18_弱模型文件范围任务卡模板.md |
+| F_AID_029 | aider | raw/Kimi_Agent_Aider 代码库方案/交付物19_Git_commit_message模板.md | markdown | Git Commit Message 模板 | reviewed | output/source_cards/aider/F_AID_029_交付物19_Git_commit_message模板.md |
+| F_AID_030 | aider | raw/Kimi_Agent_Aider 代码库方案/交付物1_Aider框架解剖报告.md | markdown | Aider 框架解剖报告 | reviewed | output/source_cards/aider/F_AID_030_交付物1_Aider框架解剖报告.md |
+| F_AID_031 | aider | raw/Kimi_Agent_Aider 代码库方案/交付物20_PR_description模板.md | markdown | PR Description 模板 | reviewed | output/source_cards/aider/F_AID_031_交付物20_PR_description模板.md |
+| F_AID_032 | aider | raw/Kimi_Agent_Aider 代码库方案/交付物2_Aider_5Why设计逻辑.md | markdown | Aider 5 Why 设计逻辑 | reviewed | output/source_cards/aider/F_AID_032_交付物2_Aider_5Why设计逻辑.md |
+| F_AID_033 | aider | raw/Kimi_Agent_Aider 代码库方案/交付物3_Aider_repo_map机制拆解.md | markdown | Aider repo map 机制拆解 | reviewed | output/source_cards/aider/F_AID_033_交付物3_Aider_repo_map机制拆解.md |
+| F_AID_034 | aider | raw/Kimi_Agent_Aider 代码库方案/交付物4_Aider_Git原子提交机制拆解.md | markdown | Aider Git 原子提交机制拆解 | reviewed | output/source_cards/aider/F_AID_034_交付物4_Aider_Git原子提交机制拆解.md |
+| F_AID_035 | aider | raw/Kimi_Agent_Aider 代码库方案/交付物5_Aider到iOS_Harness迁移方案.md | markdown | Aider → iOS Harness 迁移方案 | reviewed | output/source_cards/aider/F_AID_035_交付物5_Aider到iOS_Harness迁移方案.md |
+| F_AID_036 | aider | raw/Kimi_Agent_Aider 代码库方案/交付物6_四框架组合方案.md | markdown | Superpowers + GSD2 + gstack + Aider 组合方案 | reviewed | output/source_cards/aider/F_AID_036_交付物6_四框架组合方案.md |
+| F_AID_037 | aider | raw/Kimi_Agent_Aider 代码库方案/交付物7_iOS_Harness_v0.1文件结构.md | markdown | iOS Harness Context Layer v0.1 文件结构 | reviewed | output/source_cards/aider/F_AID_037_交付物7_iOS_Harness_v0_1文件结构.md |
+| F_AID_038 | aider | raw/Kimi_Agent_Aider 代码库方案/交付物8_CONTEXT_INDEX.md模板.md | markdown | CONTEXT_INDEX.md —— iOS Harness 项目上下文索引 | reviewed | output/source_cards/aider/F_AID_038_交付物8_CONTEXT_INDEX_md模板.md |
+| F_AID_039 | aider | raw/Kimi_Agent_Aider 代码库方案/交付物9_FILE_SCOPE_RULES.md模板.md | markdown | FILE_SCOPE_RULES.md — iOS Harness 文件范围控制规范 | reviewed | output/source_cards/aider/F_AID_039_交付物9_FILE_SCOPE_RULES_md模板.md |
+| F_GST_001 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/ios-harness-agent-cluster.zip | archive | ios harness agent cluster | reviewed | output/source_cards/gstack/F_GST_001_ios_harness_agent_cluster.md |
+| F_GST_002 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/ios-harness/.agents/roles/app-store-release.md | markdown | Role: App Store Release（发布 Agent） | reviewed | output/source_cards/gstack/F_GST_002_ios_harness_agents_roles_app_store_release.md |
+| F_GST_003 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/ios-harness/.agents/roles/firebase-backend.md | markdown | Role: Firebase Backend（后端 Agent） | reviewed | output/source_cards/gstack/F_GST_003_ios_harness_agents_roles_firebase_backend.md |
+| F_GST_004 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/ios-harness/.agents/roles/flutter-ui.md | markdown | Role: Flutter UI（UI 实现 Agent） | reviewed | output/source_cards/gstack/F_GST_004_ios_harness_agents_roles_flutter_ui.md |
+| F_GST_005 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/ios-harness/.agents/roles/mobile-qa.md | markdown | Role: Mobile QA（移动 QA Agent） | reviewed | output/source_cards/gstack/F_GST_005_ios_harness_agents_roles_mobile_qa.md |
+| F_GST_006 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/ios-harness/.agents/roles/orchestrator.md | markdown | Role: Orchestrator（总协调者） | reviewed | output/source_cards/gstack/F_GST_006_ios_harness_agents_roles_orchestrator.md |
+| F_GST_007 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/ios-harness/.agents/roles/product-spec.md | markdown | Role: Product Spec（产品规格 Agent） | reviewed | output/source_cards/gstack/F_GST_007_ios_harness_agents_roles_product_spec.md |
+| F_GST_008 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/ios-harness/.agents/roles/security-privacy.md | markdown | Role: Security & Privacy（安全与隐私 Agent） | reviewed | output/source_cards/gstack/F_GST_008_ios_harness_agents_roles_security_privacy.md |
+| F_GST_009 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/ios-harness/.agents/roles/swift-interop.md | markdown | Role: Swift Interop（原生桥接 Agent） | reviewed | output/source_cards/gstack/F_GST_009_ios_harness_agents_roles_swift_interop.md |
+| F_GST_010 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/ios-harness/.continue/checks/app-store-release.md | markdown | App Store 发布检查模板 | reviewed | output/source_cards/gstack/F_GST_010_ios_harness_continue_checks_app_store_release.md |
+| F_GST_011 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/ios-harness/.continue/checks/firebase-rules.md | markdown | Firebase Rules 检查模板 | reviewed | output/source_cards/gstack/F_GST_011_ios_harness_continue_checks_firebase_rules.md |
+| F_GST_012 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/ios-harness/.continue/checks/mobile-security.md | markdown | 移动安全检查模板 | reviewed | output/source_cards/gstack/F_GST_012_ios_harness_continue_checks_mobile_security.md |
+| F_GST_013 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/ios-harness/AGENTS.md | markdown | iOS Harness Agent 集群总纲 | reviewed | output/source_cards/gstack/F_GST_013_ios_harness_AGENTS.md |
+| F_GST_014 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/ios-harness/docs/agent/IOS_RELEASE_CHECKLIST.md | markdown | iOS 发布检查清单 | reviewed | output/source_cards/gstack/F_GST_014_ios_harness_docs_agent_IOS_RELEASE_CHECKLIST.md |
+| F_GST_015 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/ios-harness/docs/agent/REVIEW_MATRIX.md | markdown | iOS Harness Agent 审查矩阵 | reviewed | output/source_cards/gstack/F_GST_015_ios_harness_docs_agent_REVIEW_MATRIX.md |
+| F_GST_016 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/ios-harness/docs/agent/RISK_CONTROL.md | markdown | iOS Harness Agent 风险控制文档 | reviewed | output/source_cards/gstack/F_GST_016_ios_harness_docs_agent_RISK_CONTROL.md |
+| F_GST_017 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/ios-harness/docs/agent/ROLE_MATRIX.md | markdown | iOS Harness Agent 角色矩阵 | reviewed | output/source_cards/gstack/F_GST_017_ios_harness_docs_agent_ROLE_MATRIX.md |
+| F_GST_018 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/ios-harness/docs/agent/WEAK_MODEL_TASK_CARD.md | markdown | iOS Harness Agent 弱模型任务卡模板 | reviewed | output/source_cards/gstack/F_GST_018_ios_harness_docs_agent_WEAK_MODEL_TASK_CARD.md |
+| F_GST_019 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/ios-harness/docs/app-store-release-flowchart.md | markdown | App Store 发布角色协作流程图 | reviewed | output/source_cards/gstack/F_GST_019_ios_harness_docs_app_store_release_flowchart.md |
+| F_GST_020 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/ios-harness/docs/workflow-app-store-release.md | markdown | iOS Harness 工作流 5：App Store 发布流 | reviewed | output/source_cards/gstack/F_GST_020_ios_harness_docs_workflow_app_store_release.md |
+| F_GST_021 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/ios-harness/docs/workflow-bug-fix.md | markdown | iOS Harness 工作流 2：Bug 修复流 | reviewed | output/source_cards/gstack/F_GST_021_ios_harness_docs_workflow_bug_fix.md |
+| F_GST_022 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/ios-harness/docs/workflow-feature-development.md | markdown | iOS Harness 工作流 1：新功能开发流 | reviewed | output/source_cards/gstack/F_GST_022_ios_harness_docs_workflow_feature_development.md |
+| F_GST_023 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/ios-harness/docs/workflow-firebase-rules.md | markdown | iOS Harness 工作流 3：Firebase 安全规则流 | reviewed | output/source_cards/gstack/F_GST_023_ios_harness_docs_workflow_firebase_rules.md |
+| F_GST_024 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/ios-harness/docs/workflow-swift-interop.md | markdown | iOS Harness 工作流 4：Swift 原生桥接流 | reviewed | output/source_cards/gstack/F_GST_024_ios_harness_docs_workflow_swift_interop.md |
+| F_GST_025 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/ios-harness/gstack-complete-report.agent.final.md | markdown | gstack 框架深度研究：从虚拟工程团队到 iOS Agent 集群治理 | reviewed | output/source_cards/gstack/F_GST_025_ios_harness_gstack_complete_report_agent_final.md |
+| F_GST_026 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/ios-harness/gstack-report-part1.md | markdown | gstack 框架深度研究（前半部分：阶段一至阶段六） | reviewed | output/source_cards/gstack/F_GST_026_ios_harness_gstack_report_part1.md |
+| F_GST_027 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/ios-harness/gstack-report-part2.md | markdown | gstack 框架深度研究（后半部分） | reviewed | output/source_cards/gstack/F_GST_027_ios_harness_gstack_report_part2.md |
+| F_GST_028 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/ios-harness/gstack框架深度研究_从虚拟工程团队到iOS_Agent集群治理.docx | document | gstack框架深度研究 从虚拟工程团队到iOS Agent集群治理 | reviewed | output/source_cards/gstack/F_GST_028_ios_harness_gstack框架深度研究_从虚拟工程团队到iOS_Agent集群治理.md |
+| F_GST_029 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/research/AGENTS.md | markdown | gstack — AI Engineering Workflow | reviewed | output/source_cards/gstack/F_GST_029_research_AGENTS.md |
+| F_GST_030 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/research/ARCHITECTURE.md | markdown | Architecture | reviewed | output/source_cards/gstack/F_GST_030_research_ARCHITECTURE.md |
+| F_GST_031 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/research/CLAUDE.md | markdown | gstack development | reviewed | output/source_cards/gstack/F_GST_031_research_CLAUDE.md |
+| F_GST_032 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/research/DESIGN.md | markdown | Design System — gstack | reviewed | output/source_cards/gstack/F_GST_032_research_DESIGN.md |
+| F_GST_033 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/research/ETHOS.md | markdown | gstack Builder Ethos | reviewed | output/source_cards/gstack/F_GST_033_research_ETHOS.md |
+| F_GST_034 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/research/README.md | markdown | gstack | reviewed | output/source_cards/gstack/F_GST_034_research_README.md |
+| F_GST_035 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/research/TODOS.md | markdown | 待办S | reviewed | output/source_cards/gstack/F_GST_035_research_TODOS.md |
+| F_GST_036 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/research/gstack_commands.md | markdown | gstack 仓库命令体系、安全机制与 Guardrails 深度分析报告 | reviewed | output/source_cards/gstack/F_GST_036_research_gstack_commands.md |
+| F_GST_037 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/research/gstack_comparison.md | markdown | gstack vs Superpowers vs GSD2: AI Agent 框架深度对比分析 | reviewed | output/source_cards/gstack/F_GST_037_research_gstack_comparison.md |
+| F_GST_038 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/research/gstack_roles.md | markdown | gstack 仓库角色体系深度分析报告 | reviewed | output/source_cards/gstack/F_GST_038_research_gstack_roles.md |
+| F_GST_039 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/research/gstack_skills.md | markdown | GStack Skill 系统深度分析报告 | reviewed | output/source_cards/gstack/F_GST_039_research_gstack_skills.md |
+| F_GST_040 | gstack | raw/Kimi_Agent_gstack 多 Agent 迁移/research/gstack_structure.md | markdown | gstack 仓库深度架构分析报告 | reviewed | output/source_cards/gstack/F_GST_040_research_gstack_structure.md |
+| F_SWE_001 | swe-agent | raw/Kimi_Agent_SWE-agent 迁移研究/SWE-agent到iOS_Harness_ACI迁移_技术调研文档.docx | document | SWE agent到iOS Harness ACI迁移 技术调研文档 | reviewed | output/source_cards/swe-agent/F_SWE_001_SWE_agent到iOS_Harness_ACI迁移_技术调研文档.md |
+| F_SWE_002 | swe-agent | raw/Kimi_Agent_SWE-agent 迁移研究/plan.md | markdown | SWE-agent / mini-SWE-agent → iOS Harness ACI 迁移研究计划 | reviewed | output/source_cards/swe-agent/F_SWE_002_plan.md |
+| F_SWE_003 | swe-agent | raw/Kimi_Agent_SWE-agent 迁移研究/research/framework_comparison.md | markdown | 五大 AI 编码 Agent 框架本质区别与互补关系研究报告 | reviewed | output/source_cards/swe-agent/F_SWE_003_research_framework_comparison.md |
+| F_SWE_004 | swe-agent | raw/Kimi_Agent_SWE-agent 迁移研究/research/ios_harness_design.md | markdown | SWE-agent ACI 到 iOS App Store Harness 的迁移设计研究报告 | reviewed | output/source_cards/swe-agent/F_SWE_004_research_ios_harness_design.md |
+| F_SWE_005 | swe-agent | raw/Kimi_Agent_SWE-agent 迁移研究/research/swe_aci_mechanisms.md | markdown | SWE-agent Agent-Computer Interface (ACI) 设计机制深度研究报告 | reviewed | output/source_cards/swe-agent/F_SWE_005_research_swe_aci_mechanisms.md |
+| F_SWE_006 | swe-agent | raw/Kimi_Agent_SWE-agent 迁移研究/research/swe_repo_structure.md | markdown | SWE-agent & mini-SWE-agent 仓库结构与源码组织深度研究报告 | reviewed | output/source_cards/swe-agent/F_SWE_006_research_swe_repo_structure.md |
+| F_SWE_007 | swe-agent | raw/Kimi_Agent_SWE-agent 迁移研究/research/swe_trajectory_config.md | markdown | SWE-agent Trajectory/Replay 体系、配置系统、环境抽象深度研究报告 | reviewed | output/source_cards/swe-agent/F_SWE_007_research_swe_trajectory_config.md |
+| F_SWE_008 | swe-agent | raw/Kimi_Agent_SWE-agent 迁移研究/swe_agent_ios_harness.agent.final.base.docx | document | swe agent ios harness.agent.final.base | reviewed | output/source_cards/swe-agent/F_SWE_008_swe_agent_ios_harness_agent_final_base.md |
+| F_SWE_009 | swe-agent | raw/Kimi_Agent_SWE-agent 迁移研究/swe_agent_ios_harness.agent.final.converted.md | markdown | SWE-agent / mini-SWE-agent → iOS Harness ACI 迁移：完整技术调研文档 | reviewed | output/source_cards/swe-agent/F_SWE_009_swe_agent_ios_harness_agent_final_converted.md |
+| F_SWE_010 | swe-agent | raw/Kimi_Agent_SWE-agent 迁移研究/swe_agent_ios_harness.agent.final.footnote.docx | document | swe agent ios harness.agent.final.footnote | reviewed | output/source_cards/swe-agent/F_SWE_010_swe_agent_ios_harness_agent_final_footnote.md |
+| F_SWE_011 | swe-agent | raw/Kimi_Agent_SWE-agent 迁移研究/swe_agent_ios_harness.agent.final.md | markdown | SWE-agent / mini-SWE-agent → iOS Harness ACI 迁移：完整技术调研文档 | reviewed | output/source_cards/swe-agent/F_SWE_011_swe_agent_ios_harness_agent_final.md |
+| F_SWE_012 | swe-agent | raw/Kimi_Agent_SWE-agent 迁移研究/swe_agent_ios_harness.agent.outline.md | markdown | SWE-agent / mini-SWE-agent → iOS Harness ACI 迁移：完整技术调研文档 | reviewed | output/source_cards/swe-agent/F_SWE_012_swe_agent_ios_harness_agent_outline.md |
+| F_SWE_013 | swe-agent | raw/Kimi_Agent_SWE-agent 迁移研究/swe_agent_ios_harness_sec01.md | markdown | 1. 建立研究目标 | reviewed | output/source_cards/swe-agent/F_SWE_013_swe_agent_ios_harness_sec01.md |
+| F_SWE_014 | swe-agent | raw/Kimi_Agent_SWE-agent 迁移研究/swe_agent_ios_harness_sec02.md | markdown | 2. 源码与目录结构解剖 | reviewed | output/source_cards/swe-agent/F_SWE_014_swe_agent_ios_harness_sec02.md |
+| F_SWE_015 | swe-agent | raw/Kimi_Agent_SWE-agent 迁移研究/swe_agent_ios_harness_sec03.md | markdown | 3. SWE-agent 核心概念解释 | reviewed | output/source_cards/swe-agent/F_SWE_015_swe_agent_ios_harness_sec03.md |
+| F_SWE_016 | swe-agent | raw/Kimi_Agent_SWE-agent 迁移研究/swe_agent_ios_harness_sec04.md | markdown | 4. ACI 深挖 | reviewed | output/source_cards/swe-agent/F_SWE_016_swe_agent_ios_harness_sec04.md |
+| F_SWE_017 | swe-agent | raw/Kimi_Agent_SWE-agent 迁移研究/swe_agent_ios_harness_sec05.md | markdown | 5. File Viewer 深挖与 iOS 迁移 | reviewed | output/source_cards/swe-agent/F_SWE_017_swe_agent_ios_harness_sec05.md |
+| F_SWE_018 | swe-agent | raw/Kimi_Agent_SWE-agent 迁移研究/swe_agent_ios_harness_sec06.md | markdown | 6. Search Command 深挖与 iOS 迁移 | reviewed | output/source_cards/swe-agent/F_SWE_018_swe_agent_ios_harness_sec06.md |
+| F_SWE_019 | swe-agent | raw/Kimi_Agent_SWE-agent 迁移研究/swe_agent_ios_harness_sec07.md | markdown | 7. Edit Command 深挖与 iOS 迁移 | reviewed | output/source_cards/swe-agent/F_SWE_019_swe_agent_ios_harness_sec07.md |
+| F_SWE_020 | swe-agent | raw/Kimi_Agent_SWE-agent 迁移研究/swe_agent_ios_harness_sec08.md | markdown | 8. Run Command / Verification 深挖与 iOS 迁移 | reviewed | output/source_cards/swe-agent/F_SWE_020_swe_agent_ios_harness_sec08.md |
+| F_SWE_021 | swe-agent | raw/Kimi_Agent_SWE-agent 迁移研究/swe_agent_ios_harness_sec09.md | markdown | 9. Trajectory / Replay 深挖与 iOS 迁移 | reviewed | output/source_cards/swe-agent/F_SWE_021_swe_agent_ios_harness_sec09.md |
+| F_SWE_022 | swe-agent | raw/Kimi_Agent_SWE-agent 迁移研究/swe_agent_ios_harness_sec10.md | markdown | 10. mini-SWE-agent 极简实现深挖 | reviewed | output/source_cards/swe-agent/F_SWE_022_swe_agent_ios_harness_sec10.md |
+| F_SWE_023 | swe-agent | raw/Kimi_Agent_SWE-agent 迁移研究/swe_agent_ios_harness_sec11.md | markdown | 11. iOS Harness ACI 工具设计 | reviewed | output/source_cards/swe-agent/F_SWE_023_swe_agent_ios_harness_sec11.md |
+| F_SWE_024 | swe-agent | raw/Kimi_Agent_SWE-agent 迁移研究/swe_agent_ios_harness_sec12.md | markdown | 12. iOS 常见任务的 ACI 工作流 | reviewed | output/source_cards/swe-agent/F_SWE_024_swe_agent_ios_harness_sec12.md |
+| F_SWE_025 | swe-agent | raw/Kimi_Agent_SWE-agent 迁移研究/swe_agent_ios_harness_sec13.md | markdown | 13. 弱模型适配深挖 | reviewed | output/source_cards/swe-agent/F_SWE_025_swe_agent_ios_harness_sec13.md |
+| F_SWE_026 | swe-agent | raw/Kimi_Agent_SWE-agent 迁移研究/swe_agent_ios_harness_sec14.md | markdown | 14. 安全与权限控制 | reviewed | output/source_cards/swe-agent/F_SWE_026_swe_agent_ios_harness_sec14.md |
+| F_SWE_027 | swe-agent | raw/Kimi_Agent_SWE-agent 迁移研究/swe_agent_ios_harness_sec15.md | markdown | 15. 五轮框架组合 | reviewed | output/source_cards/swe-agent/F_SWE_027_swe_agent_ios_harness_sec15.md |
+| F_SWE_028 | swe-agent | raw/Kimi_Agent_SWE-agent 迁移研究/swe_agent_ios_harness_sec16.md | markdown | 16. 学习路径 | reviewed | output/source_cards/swe-agent/F_SWE_028_swe_agent_ios_harness_sec16.md |
+| F_SWE_029 | swe-agent | raw/Kimi_Agent_SWE-agent 迁移研究/swe_agent_ios_harness_sec17.md | markdown | 17. 最终交付物汇总 | reviewed | output/source_cards/swe-agent/F_SWE_029_swe_agent_ios_harness_sec17.md |
