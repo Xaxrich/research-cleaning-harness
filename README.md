@@ -14,13 +14,15 @@ If your goal is to use the final iOS app development harness rather than study t
 ios_app_development_harness/README.md
 ios_app_development_harness/FULL_TUTORIAL.md
 ios_app_development_harness/FRAMEWORK_SPEC.md
+ios_app_development_harness/START_HERE.md
+ios_app_development_harness/CALL_GRAPH.md
 ```
 
 The rule is simple: raw files are evidence, Source Cards are normalized assets, conflict ledgers record synthesis risks, and later Codex work should read clean outputs before raw material.
 
 ## Current Scope
 
-As of 2026-05-13:
+As of 2026-05-14:
 
 | framework | indexed files | reviewed source cards | status |
 |---|---:|---:|---|
@@ -43,7 +45,10 @@ Machine-readable outputs:
 
 | path | purpose |
 |---|---|
-| `ios_app_development_harness/` | standalone iOS app development harness ready to copy into a real repo |
+| `ios_app_development_harness/` | layered standalone iOS app development harness ready to copy into a real repo |
+| `ios_app_development_harness/START_HERE.md` | human-facing entry point |
+| `ios_app_development_harness/CALL_GRAPH.md` | layer call graph for humans and agents |
+| `ios_app_development_harness/layers/` | 11-layer framework organized by goal, task, context, scope, review, ACI, verification, risk, memory, workflow and examples |
 | `ios_app_development_harness/FULL_TUTORIAL.md` | detailed tutorial covering design, usage, task flow, and decisions |
 | `ios_app_development_harness/FRAMEWORK_SPEC.md` | standalone framework design spec and rationale |
 | `LEARNER_GUIDE.md` | from-zero guide for learning and applying the harness |
@@ -80,7 +85,7 @@ python3 -m unittest discover research_cleaning_harness/tests
 Expected current results:
 
 ```text
-validated standalone ios app development harness, failures: 0
+validated layered ios app development harness, failures: 0
 validated ios_app_harness, failures: 0
 validated 134 source card(s), failures: 0
 validated 1 yaml file(s), failures: 0
@@ -101,7 +106,7 @@ AppleDouble metadata files named `._*` are ignored by validators and `.gitignore
 Use the standalone harness in a real iOS app repo:
 
 1. Copy `ios_app_development_harness/` into the target repo as `agent_harness/`.
-2. Read `agent_harness/FULL_TUTORIAL.md`.
-3. Adapt `PRODUCT_SPEC.md`, `CONTEXT_INDEX.md`, `FILE_SCOPE_RULES.md`, and `VERIFICATION_MATRIX.md`.
-4. Create the first task in `TASKS.md`.
+2. Read `agent_harness/START_HERE.md`, then `agent_harness/CALL_GRAPH.md`.
+3. Adapt `layers/00_goal/PRODUCT_SPEC.md`, `layers/02_context/CONTEXT_INDEX.md`, `layers/03_file_scope/FILE_SCOPE_RULES.md`, and `layers/06_verification/VERIFICATION_MATRIX.md`.
+4. Create the first task in `layers/01_task/TASKS.md`.
 5. Let Codex work through `AGENTS.md` and the task card.

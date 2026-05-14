@@ -8,7 +8,7 @@ owner_role: app_store_release
 risk_level: release_blocking
 goal: Prepare release readiness checklist for version 1.2.0.
 allowed_files:
-  - agent_harness/IOS_RELEASE_CHECKLIST.md
+  - agent_harness/layers/07_risk_release/IOS_RELEASE_CHECKLIST.md
   - docs/release/1.2.0.md
 read_only_files:
   - pubspec.yaml
@@ -18,7 +18,7 @@ forbidden_files:
   - ios/**/*.mobileprovision
   - .env*
 verification_commands:
-  - git diff -- docs/release/1.2.0.md agent_harness/IOS_RELEASE_CHECKLIST.md
+  - git diff -- docs/release/1.2.0.md agent_harness/layers/07_risk_release/IOS_RELEASE_CHECKLIST.md
 rollback_plan: revert release docs
 manual_approval_required: true
 ```

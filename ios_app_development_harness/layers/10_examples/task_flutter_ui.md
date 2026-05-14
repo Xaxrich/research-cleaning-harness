@@ -11,7 +11,7 @@ allowed_files:
   - lib/features/home/home_empty_state.dart
   - test/features/home/home_empty_state_test.dart
 read_only_files:
-  - agent_harness/PRODUCT_SPEC.md
+  - agent_harness/layers/00_goal/PRODUCT_SPEC.md
   - pubspec.yaml
 forbidden_files:
   - ios/

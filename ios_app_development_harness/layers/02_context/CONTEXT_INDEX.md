@@ -4,10 +4,10 @@ This file tells agents what to read for each task type.
 
 ## Always Read
 
-- `agent_harness/STATE.md`
-- Current task in `agent_harness/TASKS.md`
-- `agent_harness/FILE_SCOPE_RULES.md`
-- `agent_harness/VERIFICATION_MATRIX.md`
+- `agent_harness/layers/08_memory_state/STATE.md`
+- Current task in `agent_harness/layers/01_task/TASKS.md`
+- `agent_harness/layers/03_file_scope/FILE_SCOPE_RULES.md`
+- `agent_harness/layers/06_verification/VERIFICATION_MATRIX.md`
 
 ## Task Context
 

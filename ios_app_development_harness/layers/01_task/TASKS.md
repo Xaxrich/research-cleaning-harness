@@ -12,10 +12,10 @@ goal:
   Adapt PRODUCT_SPEC.md, CONTEXT_INDEX.md, FILE_SCOPE_RULES.md, and VERIFICATION_MATRIX.md to the real iOS project.
 
 allowed_files:
-  - agent_harness/PRODUCT_SPEC.md
-  - agent_harness/CONTEXT_INDEX.md
-  - agent_harness/FILE_SCOPE_RULES.md
-  - agent_harness/VERIFICATION_MATRIX.md
+  - agent_harness/layers/00_goal/PRODUCT_SPEC.md
+  - agent_harness/layers/02_context/CONTEXT_INDEX.md
+  - agent_harness/layers/03_file_scope/FILE_SCOPE_RULES.md
+  - agent_harness/layers/06_verification/VERIFICATION_MATRIX.md
 
 read_only_files:
   - README.md

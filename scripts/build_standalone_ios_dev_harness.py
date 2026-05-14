@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import stat
+import shutil
 from pathlib import Path
 
 
@@ -398,7 +399,7 @@ owner_role: orchestrator
 risk_level: low
 goal: Fill PRODUCT_SPEC.md with this app's actual purpose and constraints.
 allowed_files:
-  - agent_harness/PRODUCT_SPEC.md
+  - agent_harness/layers/00_goal/PRODUCT_SPEC.md
 read_only_files:
   - README.md
   - pubspec.yaml
@@ -412,7 +413,7 @@ required_context:
   - agent_harness/TASKS.md
   - agent_harness/CONTEXT_INDEX.md
 verification_commands:
-  - git diff -- agent_harness/PRODUCT_SPEC.md
+  - git diff -- agent_harness/layers/00_goal/PRODUCT_SPEC.md
 rollback_plan: revert agent_harness/PRODUCT_SPEC.md
 ```
 
@@ -913,10 +914,10 @@ goal:
   Adapt PRODUCT_SPEC.md, CONTEXT_INDEX.md, FILE_SCOPE_RULES.md, and VERIFICATION_MATRIX.md to the real iOS project.
 
 allowed_files:
-  - agent_harness/PRODUCT_SPEC.md
-  - agent_harness/CONTEXT_INDEX.md
-  - agent_harness/FILE_SCOPE_RULES.md
-  - agent_harness/VERIFICATION_MATRIX.md
+  - agent_harness/layers/00_goal/PRODUCT_SPEC.md
+  - agent_harness/layers/02_context/CONTEXT_INDEX.md
+  - agent_harness/layers/03_file_scope/FILE_SCOPE_RULES.md
+  - agent_harness/layers/06_verification/VERIFICATION_MATRIX.md
 
 read_only_files:
   - README.md
@@ -963,10 +964,10 @@ This file tells agents what to read for each task type.
 
 ## Always Read
 
-- `agent_harness/STATE.md`
-- Current task in `agent_harness/TASKS.md`
-- `agent_harness/FILE_SCOPE_RULES.md`
-- `agent_harness/VERIFICATION_MATRIX.md`
+- `agent_harness/layers/08_memory_state/STATE.md`
+- Current task in `agent_harness/layers/01_task/TASKS.md`
+- `agent_harness/layers/03_file_scope/FILE_SCOPE_RULES.md`
+- `agent_harness/layers/06_verification/VERIFICATION_MATRIX.md`
 
 ## Task Context
 
@@ -1023,7 +1024,7 @@ Every task must define:
 
 | task_type | allowed examples | read-only examples | forbidden/high-risk examples |
 |---|---|---|---|
-| docs | `agent_harness/*.md`, docs | app config | secrets, signing |
+| docs | `agent_harness/layers/**/*.md`, docs | app config | secrets, signing |
 | flutter_ui | `lib/**`, targeted `test/**` | `pubspec.yaml`, design docs | `ios/**`, Firebase production config |
 | swift_bridge | `ios/**`, bridge caller files | Flutter callers, docs | signing files, production credentials |
 | firebase_rules | `firestore.rules`, `storage.rules`, tests | schema docs | service account keys |
@@ -1280,10 +1281,10 @@ BOOTSTRAP = """# BOOTSTRAP
 
 1. Copy this folder to `agent_harness/`.
 2. Run `python3 agent_harness/scripts/validate_harness.py`.
-3. Fill `PRODUCT_SPEC.md`.
-4. Adapt `CONTEXT_INDEX.md`.
-5. Adapt `VERIFICATION_MATRIX.md`.
-6. Create the first task in `TASKS.md`.
+3. Fill `layers/00_goal/PRODUCT_SPEC.md`.
+4. Adapt `layers/02_context/CONTEXT_INDEX.md`.
+5. Adapt `layers/06_verification/VERIFICATION_MATRIX.md`.
+6. Create the first task in `layers/01_task/TASKS.md`.
 """
 
 
@@ -1371,14 +1372,14 @@ owner_role: orchestrator
 risk_level: low
 goal: Adapt PRODUCT_SPEC.md for the real app.
 allowed_files:
-  - agent_harness/PRODUCT_SPEC.md
+  - agent_harness/layers/00_goal/PRODUCT_SPEC.md
 read_only_files:
   - README.md
   - pubspec.yaml
 forbidden_files:
   - .env*
 verification_commands:
-  - git diff -- agent_harness/PRODUCT_SPEC.md
+  - git diff -- agent_harness/layers/00_goal/PRODUCT_SPEC.md
 rollback_plan: revert PRODUCT_SPEC.md
 ```
 """
@@ -1397,7 +1398,7 @@ allowed_files:
   - lib/features/home/home_empty_state.dart
   - test/features/home/home_empty_state_test.dart
 read_only_files:
-  - agent_harness/PRODUCT_SPEC.md
+  - agent_harness/layers/00_goal/PRODUCT_SPEC.md
   - pubspec.yaml
 forbidden_files:
   - ios/
@@ -1470,7 +1471,7 @@ owner_role: app_store_release
 risk_level: release_blocking
 goal: Prepare release readiness checklist for version 1.2.0.
 allowed_files:
-  - agent_harness/IOS_RELEASE_CHECKLIST.md
+  - agent_harness/layers/07_risk_release/IOS_RELEASE_CHECKLIST.md
   - docs/release/1.2.0.md
 read_only_files:
   - pubspec.yaml
@@ -1480,7 +1481,7 @@ forbidden_files:
   - ios/**/*.mobileprovision
   - .env*
 verification_commands:
-  - git diff -- docs/release/1.2.0.md agent_harness/IOS_RELEASE_CHECKLIST.md
+  - git diff -- docs/release/1.2.0.md agent_harness/layers/07_risk_release/IOS_RELEASE_CHECKLIST.md
 rollback_plan: revert release docs
 manual_approval_required: true
 ```
@@ -1497,12 +1498,14 @@ CODEX_PROMPTS = """# Codex Prompts
 当前任务是 <TASK_ID>。
 
 先读：
-- agent_harness/STATE.md
-- agent_harness/TASKS.md
-- agent_harness/CONTEXT_INDEX.md
-- agent_harness/FILE_SCOPE_RULES.md
-- agent_harness/VERIFICATION_MATRIX.md
-- agent_harness/RISK_CONTROL.md
+- agent_harness/AGENTS.md
+- agent_harness/CALL_GRAPH.md
+- agent_harness/layers/08_memory_state/STATE.md
+- agent_harness/layers/01_task/TASKS.md
+- agent_harness/layers/02_context/CONTEXT_INDEX.md
+- agent_harness/layers/03_file_scope/FILE_SCOPE_RULES.md
+- agent_harness/layers/06_verification/VERIFICATION_MATRIX.md
+- agent_harness/layers/07_risk_release/RISK_CONTROL.md
 
 只允许修改当前任务的 allowed_files。
 完成前运行 verification_commands。
@@ -1512,7 +1515,7 @@ CODEX_PROMPTS = """# Codex Prompts
 ## Review Diff
 
 ```text
-请按 agent_harness/REVIEW_MATRIX.md review 当前 diff。
+请按 agent_harness/layers/04_roles_review/REVIEW_MATRIX.md review 当前 diff。
 Findings first，按 severity 排序。
 重点检查 wrong_file_edit、missing verification、release/privacy/security risk、rollback gap。
 ```
@@ -1521,7 +1524,7 @@ Findings first，按 severity 排序。
 
 ```text
 当前任务验证失败。
-先读 agent_harness/DEBUG_GUIDE.md 和 FAILURE_LOG.md。
+先读 agent_harness/layers/06_verification/DEBUG_GUIDE.md 和 agent_harness/layers/08_memory_state/FAILURE_LOG.md。
 不要直接修。
 先分类 failure mode，提出一个最小假设，再做一处修改。
 ```
@@ -1707,12 +1710,14 @@ set -euo pipefail
 task="${1:-TASKS.md}"
 printf 'task_file: %s\\n' "$task"
 printf 'required_context:\\n'
-printf '  - STATE.md\\n'
-printf '  - TASKS.md\\n'
-printf '  - CONTEXT_INDEX.md\\n'
-printf '  - FILE_SCOPE_RULES.md\\n'
-printf '  - VERIFICATION_MATRIX.md\\n'
-printf '  - RISK_CONTROL.md\\n'
+printf '  - AGENTS.md\\n'
+printf '  - CALL_GRAPH.md\\n'
+printf '  - layers/08_memory_state/STATE.md\\n'
+printf '  - layers/01_task/TASKS.md\\n'
+printf '  - layers/02_context/CONTEXT_INDEX.md\\n'
+printf '  - layers/03_file_scope/FILE_SCOPE_RULES.md\\n'
+printf '  - layers/06_verification/VERIFICATION_MATRIX.md\\n'
+printf '  - layers/07_risk_release/RISK_CONTROL.md\\n'
 """
 
 
@@ -1731,6 +1736,644 @@ src="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cp -R "$src" "$target/$dest"
 echo "installed harness to $target/$dest"
 """
+
+
+LAYERED_README = """# iOS App Development Harness
+
+这是一套按层级组织的 iOS app 开发 harness。它可以直接复制到真实项目中作为 `agent_harness/` 使用。
+
+## 一眼看懂目录
+
+```text
+agent_harness/
+  README.md
+  START_HERE.md
+  AGENTS.md
+  CALL_GRAPH.md
+  FRAMEWORK_SPEC.md
+  FULL_TUTORIAL.md
+
+  layers/
+    00_goal/            # 项目目标、产品边界
+    01_task/            # 任务卡、任务入口
+    02_context/         # 上下文读取规则
+    03_file_scope/      # allowed/read-only/forbidden 文件范围
+    04_roles_review/    # 角色、review、模型路由
+    05_action_aci/      # agent 工具契约和脚本
+    06_verification/    # 测试、验证、debug
+    07_risk_release/    # 风险、隐私、发布、人工批准
+    08_memory_state/    # 状态、失败日志、决策、Git
+    09_workflows/       # 工作流、启动步骤
+    10_examples/        # 示例任务和 Codex prompts
+```
+
+## 调用顺序
+
+```text
+00_goal
+  -> 01_task
+  -> 02_context
+  -> 03_file_scope
+  -> 04_roles_review
+  -> 05_action_aci
+  -> 06_verification
+  -> 07_risk_release
+  -> 08_memory_state
+```
+
+人类先读 `START_HERE.md`。Agent 先读 `AGENTS.md`。想理解为什么这样设计，读 `FRAMEWORK_SPEC.md`。要完整教学版，读 `FULL_TUTORIAL.md`。
+
+## 最短使用路径
+
+```bash
+cp -R ios_app_development_harness /path/to/my-ios-app/agent_harness
+cd /path/to/my-ios-app
+python3 agent_harness/scripts/validate_harness.py
+```
+
+然后按顺序适配：
+
+```text
+layers/00_goal/PRODUCT_SPEC.md
+layers/02_context/CONTEXT_INDEX.md
+layers/03_file_scope/FILE_SCOPE_RULES.md
+layers/06_verification/VERIFICATION_MATRIX.md
+layers/07_risk_release/IOS_RELEASE_CHECKLIST.md
+```
+
+## 设计原则
+
+- v0.1 是文档规则和任务纪律。
+- v0.5 是脚本辅助。
+- v1.0 才是 runtime enforcement。
+- 任何任务都必须有文件范围、验证命令和恢复路径。
+"""
+
+
+START_HERE = """# START HERE
+
+这份文件给第一次进入 harness 的人和 agent 使用。
+
+## 你是学员
+
+按这个顺序读：
+
+1. `README.md`
+2. `CALL_GRAPH.md`
+3. `FRAMEWORK_SPEC.md`
+4. `FULL_TUTORIAL.md`
+5. `layers/01_task/TASKS.md`
+6. `layers/03_file_scope/FILE_SCOPE_RULES.md`
+7. `layers/06_verification/VERIFICATION_MATRIX.md`
+
+## 你是 agent
+
+按这个顺序读：
+
+1. `AGENTS.md`
+2. `layers/08_memory_state/STATE.md`
+3. 当前任务：`layers/01_task/TASKS.md`
+4. `layers/02_context/CONTEXT_INDEX.md`
+5. `layers/03_file_scope/FILE_SCOPE_RULES.md`
+6. `layers/06_verification/VERIFICATION_MATRIX.md`
+7. `layers/07_risk_release/RISK_CONTROL.md`
+
+## 你要接入真实项目
+
+1. 复制目录为 `agent_harness/`。
+2. 运行 `python3 agent_harness/scripts/validate_harness.py`。
+3. 填写 `layers/00_goal/PRODUCT_SPEC.md`。
+4. 适配项目路径和验证命令。
+5. 在 `layers/01_task/TASKS.md` 写第一个任务卡。
+"""
+
+
+CALL_GRAPH = """# CALL GRAPH
+
+这份文件描述 harness 的调用逻辑。把它当成系统执行图。
+
+## 主调用链
+
+```text
+Human request
+  -> 00_goal/PRODUCT_SPEC.md
+  -> 01_task/TASKS.md
+  -> 02_context/CONTEXT_INDEX.md
+  -> 03_file_scope/FILE_SCOPE_RULES.md
+  -> 04_roles_review/ROLE_MATRIX.md
+  -> 05_action_aci/ACI_TOOL_CONTRACTS.md
+  -> 06_verification/VERIFICATION_MATRIX.md
+  -> 04_roles_review/REVIEW_MATRIX.md
+  -> 08_memory_state/STATE.md
+```
+
+## 失败调用链
+
+```text
+verification failed
+  -> 06_verification/DEBUG_GUIDE.md
+  -> 08_memory_state/FAILURE_LOG.md
+  -> 04_roles_review/MODEL_ROUTING.md
+  -> 07_risk_release/RISK_CONTROL.md
+  -> retry / escalate / block
+```
+
+## 高风险调用链
+
+```text
+high-risk file/action
+  -> 03_file_scope/HIGH_RISK_FILES.md
+  -> 07_risk_release/RISK_CONTROL.md
+  -> 04_roles_review/REVIEW_MATRIX.md
+  -> 07_risk_release/templates/manual_approval.md
+```
+
+## Release 调用链
+
+```text
+release task
+  -> 07_risk_release/IOS_RELEASE_CHECKLIST.md
+  -> 06_verification/VERIFICATION_MATRIX.md
+  -> 04_roles_review/REVIEW_MATRIX.md
+  -> manual approval
+```
+
+## Layer Responsibilities
+
+| layer | responsibility | primary files |
+|---|---|---|
+| 00_goal | 定义项目目标和非目标 | `PRODUCT_SPEC.md` |
+| 01_task | 把需求变成 bounded task | `TASKS.md`, `templates/task_card.md` |
+| 02_context | 控制读什么 | `CONTEXT_INDEX.md`, `CONTEXT_RULES.md` |
+| 03_file_scope | 控制能改什么 | `FILE_SCOPE_RULES.md`, `HIGH_RISK_FILES.md` |
+| 04_roles_review | 控制谁负责和谁 review | `ROLE_MATRIX.md`, `REVIEW_MATRIX.md`, `MODEL_ROUTING.md` |
+| 05_action_aci | 控制 agent 如何操作电脑 | `ACI_TOOL_CONTRACTS.md`, `scripts/agent/` |
+| 06_verification | 控制怎么证明完成 | `VERIFICATION_MATRIX.md`, `TESTING_GUIDE.md`, `DEBUG_GUIDE.md` |
+| 07_risk_release | 控制隐私、发布和高风险动作 | `RISK_CONTROL.md`, `IOS_RELEASE_CHECKLIST.md` |
+| 08_memory_state | 控制恢复、失败和决策记录 | `STATE.md`, `FAILURE_LOG.md`, `DECISIONS.md` |
+| 09_workflows | 提供端到端流程 | `WORKFLOW_CHAIN.md`, `BOOTSTRAP.md` |
+| 10_examples | 提供可复制示例 | task examples, prompts |
+"""
+
+
+LAYER_AGENTS = """# AGENTS
+
+You are operating inside an iOS App Development Harness.
+
+## Required Read Order
+
+1. `START_HERE.md`
+2. `CALL_GRAPH.md`
+3. `layers/08_memory_state/STATE.md`
+4. Current task in `layers/01_task/TASKS.md`
+5. `layers/02_context/CONTEXT_INDEX.md`
+6. `layers/03_file_scope/FILE_SCOPE_RULES.md`
+7. `layers/06_verification/VERIFICATION_MATRIX.md`
+8. `layers/07_risk_release/RISK_CONTROL.md`
+
+## Non-Negotiable Rules
+
+1. Start from a task card.
+2. Only edit `allowed_files`.
+3. Treat `read_only_files` as read-only.
+4. Do not touch `forbidden_files` without explicit approval.
+5. Search before broad reading.
+6. View before edit.
+7. Run task-specific verification before completion.
+8. Record failures in `layers/08_memory_state/FAILURE_LOG.md`.
+9. Use review/risk gates for high-risk work.
+10. Never perform release/signing/upload actions without manual approval.
+
+## Completion Response Must Include
+
+- Files changed.
+- Verification commands run.
+- Result of each command.
+- Remaining risks.
+- Whether review/manual approval is required.
+"""
+
+
+LAYERED_FRAMEWORK_SPEC = """# Framework Spec: Layered iOS App Development Harness
+
+## 1. 为什么改成层级结构
+
+平铺文件对机器可读没有问题，但对学员和新进入的 agent 不够直观。层级结构把框架变成一张执行地图：
+
+```text
+目标 -> 任务 -> 上下文 -> 文件范围 -> 角色/review -> 工具动作 -> 验证 -> 风险/release -> 状态记忆
+```
+
+每一层只回答一个问题：
+
+| layer | question |
+|---|---|
+| 00_goal | 我们到底在做什么产品？ |
+| 01_task | 当前任务是什么，边界是什么？ |
+| 02_context | agent 应该读什么，不该读什么？ |
+| 03_file_scope | agent 可以改什么，不能改什么？ |
+| 04_roles_review | 谁负责，谁 review，什么模型能做？ |
+| 05_action_aci | agent 如何安全地看、搜、改、跑命令？ |
+| 06_verification | 如何证明任务完成？ |
+| 07_risk_release | 什么动作必须升级或人工批准？ |
+| 08_memory_state | 中断、失败、决策如何记录？ |
+| 09_workflows | 端到端任务如何串起来？ |
+| 10_examples | 新手如何照着做？ |
+
+## 2. 设计决策
+
+### D-001: 根目录只保留入口和地图
+
+根目录用于导航，不承载大量细节。这样打开目录第一眼能看到：
+
+```text
+README.md
+START_HERE.md
+CALL_GRAPH.md
+AGENTS.md
+layers/
+```
+
+### D-002: 每一层独立成文件夹
+
+层级文件夹降低认知负担。学员要学验证，只进 `06_verification`；agent 要检查风险，只进 `07_risk_release`。
+
+### D-003: 调用链显式化
+
+`CALL_GRAPH.md` 是核心文件。它告诉人和 agent 在正常任务、失败任务、高风险任务、release 任务中该如何跳转。
+
+### D-004: 保留 AGENTS.md 在根目录
+
+很多 coding agent 会默认寻找根目录的 `AGENTS.md`。因此根目录保留 agent 入口，但它只负责路由到 layers。
+
+### D-005: scripts 不混入文档层
+
+`scripts/validate_harness.py` 和 `scripts/install_into_repo.sh` 是运维入口；agent 动作脚本放在 `layers/05_action_aci/scripts/agent/`，因为它们属于 Action / ACI Layer。
+
+## 3. 开发任务执行模型
+
+```text
+Human request
+  -> task card
+  -> context pack
+  -> file scope check
+  -> role/risk decision
+  -> action/ACI
+  -> verification
+  -> review
+  -> state update
+```
+
+这个模型的目标是防止：
+
+- context pollution
+- wrong file edit
+- no test completion
+- stuck loop
+- weak model overreach
+- release risk
+
+## 4. 使用原则
+
+- 新学员从 `START_HERE.md` 开始。
+- Agent 从 `AGENTS.md` 开始。
+- 设计讨论从 `FRAMEWORK_SPEC.md` 开始。
+- 具体任务从 `layers/01_task/TASKS.md` 开始。
+- 任何高风险动作必须经过 `07_risk_release`。
+"""
+
+
+LAYERED_TUTORIAL = """# Full Tutorial: 层级版 iOS App Development Harness 使用教程
+
+## 1. 先看地图
+
+打开 harness 后先看三个文件：
+
+```text
+START_HERE.md
+CALL_GRAPH.md
+FRAMEWORK_SPEC.md
+```
+
+不要先钻进所有细节。先理解层级：
+
+```text
+00_goal -> 01_task -> 02_context -> 03_file_scope -> 04_roles_review -> 05_action_aci -> 06_verification -> 07_risk_release -> 08_memory_state
+```
+
+## 2. 安装到真实项目
+
+推荐 sidecar 安装：
+
+```bash
+cp -R ios_app_development_harness /path/to/my-ios-app/agent_harness
+cd /path/to/my-ios-app
+python3 agent_harness/scripts/validate_harness.py
+```
+
+## 3. 第一次适配
+
+按层适配：
+
+| order | file | what to fill |
+|---|---|---|
+| 1 | `layers/00_goal/PRODUCT_SPEC.md` | app 目标、用户、技术栈、风险 |
+| 2 | `layers/02_context/CONTEXT_INDEX.md` | lib/ios/test/firebase 等真实路径 |
+| 3 | `layers/03_file_scope/FILE_SCOPE_RULES.md` | allowed/read-only/forbidden 默认规则 |
+| 4 | `layers/06_verification/VERIFICATION_MATRIX.md` | 项目真实验证命令 |
+| 5 | `layers/07_risk_release/IOS_RELEASE_CHECKLIST.md` | release、privacy、signing 流程 |
+
+## 4. 第一个任务
+
+在 `layers/01_task/TASKS.md` 写一个 docs-only task。不要一开始改业务代码。
+
+```yaml
+task_id: TASK-001
+status: ready
+task_type: docs
+owner_role: orchestrator
+risk_level: low
+goal: Fill product spec for the app.
+allowed_files:
+  - agent_harness/layers/00_goal/PRODUCT_SPEC.md
+read_only_files:
+  - README.md
+  - pubspec.yaml
+forbidden_files:
+  - .env*
+  - "**/*.p12"
+verification_commands:
+  - git diff -- agent_harness/layers/00_goal/PRODUCT_SPEC.md
+rollback_plan: revert product spec changes
+```
+
+## 5. 给 Codex 的工作提示
+
+```text
+你现在在一个 iOS app repo 中工作，必须使用 agent_harness。
+
+当前任务是 TASK-001。
+
+先读：
+- agent_harness/AGENTS.md
+- agent_harness/CALL_GRAPH.md
+- agent_harness/layers/08_memory_state/STATE.md
+- agent_harness/layers/01_task/TASKS.md
+- agent_harness/layers/02_context/CONTEXT_INDEX.md
+- agent_harness/layers/03_file_scope/FILE_SCOPE_RULES.md
+- agent_harness/layers/06_verification/VERIFICATION_MATRIX.md
+
+只允许修改当前任务的 allowed_files。
+完成前运行 verification_commands。
+```
+
+## 6. 正常任务调用逻辑
+
+```text
+01_task/TASKS.md
+  -> 02_context/CONTEXT_INDEX.md
+  -> 03_file_scope/FILE_SCOPE_RULES.md
+  -> 04_roles_review/ROLE_MATRIX.md
+  -> 05_action_aci/ACI_TOOL_CONTRACTS.md
+  -> 06_verification/VERIFICATION_MATRIX.md
+  -> 08_memory_state/STATE.md
+```
+
+## 7. 失败任务调用逻辑
+
+```text
+06_verification/DEBUG_GUIDE.md
+  -> 08_memory_state/FAILURE_LOG.md
+  -> 04_roles_review/MODEL_ROUTING.md
+  -> 07_risk_release/RISK_CONTROL.md
+```
+
+失败时不要盲目重试。先分类，再决定 retry、escalate 或 block。
+
+## 8. 高风险任务调用逻辑
+
+```text
+03_file_scope/HIGH_RISK_FILES.md
+  -> 07_risk_release/RISK_CONTROL.md
+  -> 04_roles_review/REVIEW_MATRIX.md
+  -> 07_risk_release/templates/manual_approval.md
+```
+
+release、signing、upload、production Firebase、privacy 权限都属于高风险。
+
+## 9. 每层教学法
+
+学员不要一次学完所有文件。按层练：
+
+1. 00_goal：写产品目标。
+2. 01_task：写任务卡。
+3. 02_context：列出该读什么。
+4. 03_file_scope：列出能改什么。
+5. 04_roles_review：判断谁 review。
+6. 05_action_aci：用 view/search/safe_edit/run。
+7. 06_verification：跑验证。
+8. 07_risk_release：判断是否升级。
+9. 08_memory_state：记录状态和失败。
+
+## 10. 判断学会的标准
+
+学员能做到以下事情，才算真正会用：
+
+- 解释每个 layer 的职责。
+- 写一个合格 task card。
+- 正确区分 allowed/read-only/forbidden。
+- 从 CALL_GRAPH 走完整任务流程。
+- 为 Flutter/Swift/Firebase/release 任务选择不同验证。
+- 失败时写 FAILURE_LOG 而不是盲改。
+- 知道 release_blocking 必须人工批准。
+"""
+
+
+def overwrite(path: Path, text: str, executable: bool = False) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text.rstrip() + "\n", encoding="utf-8")
+    if executable:
+        path.chmod(path.stat().st_mode | stat.S_IXUSR | stat.S_IXGRP | stat.S_IXOTH)
+
+
+def move_file(src_rel: str, dst_rel: str) -> None:
+    src = OUT / src_rel
+    dst = OUT / dst_rel
+    if not src.exists():
+        return
+    overwrite(dst, src.read_text(encoding="utf-8"), executable=bool(src.stat().st_mode & stat.S_IXUSR))
+    src.unlink()
+
+
+def write_layer_readmes() -> None:
+    layer_descriptions = {
+        "layers/00_goal/README.md": ("Goal Layer", "定义项目目标、用户、技术栈、非目标和主要风险。"),
+        "layers/01_task/README.md": ("Task Layer", "把自然语言需求变成 bounded task card。"),
+        "layers/02_context/README.md": ("Context Layer", "决定 agent 应该读取哪些上下文，以及哪些上下文默认不读。"),
+        "layers/03_file_scope/README.md": ("File Scope Layer", "定义 allowed/read-only/forbidden 文件范围，防止误改。"),
+        "layers/04_roles_review/README.md": ("Role / Review Layer", "定义 owner role、review gate 和模型路由。"),
+        "layers/05_action_aci/README.md": ("Action / ACI Layer", "定义 agent 和电脑交互的工具契约。"),
+        "layers/06_verification/README.md": ("Verification Layer", "定义完成标准、测试策略和 debug 流程。"),
+        "layers/07_risk_release/README.md": ("Risk / Release Layer", "控制隐私、签名、发布、生产数据等高风险动作。"),
+        "layers/08_memory_state/README.md": ("Memory / State Layer", "记录状态、失败、决策和 Git 证据。"),
+        "layers/09_workflows/README.md": ("Workflow Layer", "提供端到端任务流程和启动步骤。"),
+        "layers/10_examples/README.md": ("Examples Layer", "提供可复制任务卡和 Codex prompt。"),
+    }
+    for rel, (title, description) in layer_descriptions.items():
+        overwrite(OUT / rel, f"# {title}\n\n{description}\n")
+
+
+def write_layered_validator() -> None:
+    validator = """#!/usr/bin/env python3
+from __future__ import annotations
+
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+
+REQUIRED = [
+    "README.md",
+    "START_HERE.md",
+    "CALL_GRAPH.md",
+    "AGENTS.md",
+    "FRAMEWORK_SPEC.md",
+    "FULL_TUTORIAL.md",
+    "layers/00_goal/PRODUCT_SPEC.md",
+    "layers/01_task/TASKS.md",
+    "layers/01_task/templates/task_card.md",
+    "layers/02_context/CONTEXT_INDEX.md",
+    "layers/02_context/CONTEXT_RULES.md",
+    "layers/03_file_scope/FILE_SCOPE_RULES.md",
+    "layers/03_file_scope/HIGH_RISK_FILES.md",
+    "layers/04_roles_review/ROLE_MATRIX.md",
+    "layers/04_roles_review/REVIEW_MATRIX.md",
+    "layers/04_roles_review/MODEL_ROUTING.md",
+    "layers/04_roles_review/templates/review_template.md",
+    "layers/05_action_aci/ACI_TOOL_CONTRACTS.md",
+    "layers/05_action_aci/scripts/agent/view_file.sh",
+    "layers/05_action_aci/scripts/agent/search_code.sh",
+    "layers/05_action_aci/scripts/agent/safe_edit_check.sh",
+    "layers/05_action_aci/scripts/agent/run_safe_command.sh",
+    "layers/05_action_aci/scripts/agent/context_pack.sh",
+    "layers/06_verification/VERIFICATION_MATRIX.md",
+    "layers/06_verification/TESTING_GUIDE.md",
+    "layers/06_verification/DEBUG_GUIDE.md",
+    "layers/07_risk_release/RISK_CONTROL.md",
+    "layers/07_risk_release/IOS_RELEASE_CHECKLIST.md",
+    "layers/07_risk_release/templates/manual_approval.md",
+    "layers/08_memory_state/STATE.md",
+    "layers/08_memory_state/FAILURE_LOG.md",
+    "layers/08_memory_state/DECISIONS.md",
+    "layers/08_memory_state/GIT_WORKFLOW.md",
+    "layers/09_workflows/WORKFLOW_CHAIN.md",
+    "layers/09_workflows/BOOTSTRAP.md",
+    "layers/10_examples/task_docs_only.md",
+    "layers/10_examples/task_flutter_ui.md",
+    "layers/10_examples/task_firebase_rules.md",
+    "layers/10_examples/task_swift_bridge.md",
+    "layers/10_examples/task_release_prep.md",
+    "layers/10_examples/codex_prompts.md",
+    "scripts/validate_harness.py",
+    "scripts/install_into_repo.sh",
+]
+
+KEY_TERMS = {
+    "CALL_GRAPH.md": ["主调用链", "失败调用链", "高风险调用链"],
+    "AGENTS.md": ["Required Read Order", "Non-Negotiable Rules"],
+    "layers/01_task/TASKS.md": ["allowed_files", "read_only_files", "forbidden_files"],
+    "layers/03_file_scope/FILE_SCOPE_RULES.md": ["allowed", "read-only", "forbidden"],
+    "layers/06_verification/VERIFICATION_MATRIX.md": ["Completion Rule"],
+    "layers/07_risk_release/RISK_CONTROL.md": ["release_blocking", "Manual Approval"],
+}
+
+
+def main() -> int:
+    errors: list[str] = []
+    for rel in REQUIRED:
+        if not (ROOT / rel).exists():
+            errors.append(f"missing required file: {rel}")
+    for rel, terms in KEY_TERMS.items():
+        path = ROOT / rel
+        if not path.exists():
+            continue
+        text = path.read_text(encoding="utf-8")
+        for term in terms:
+            if term not in text:
+                errors.append(f"{rel} missing term: {term}")
+    for error in errors:
+        print(error)
+    print(f"validated layered ios app development harness, failures: {len(errors)}")
+    return 1 if errors else 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
+"""
+    overwrite(OUT / "scripts/validate_harness.py", validator, executable=True)
+
+
+def restructure_layers() -> None:
+    layers = OUT / "layers"
+    if layers.exists():
+        shutil.rmtree(layers)
+
+    moves = {
+        "PRODUCT_SPEC.md": "layers/00_goal/PRODUCT_SPEC.md",
+        "TASKS.md": "layers/01_task/TASKS.md",
+        "templates/task_card.md": "layers/01_task/templates/task_card.md",
+        "CONTEXT_INDEX.md": "layers/02_context/CONTEXT_INDEX.md",
+        "CONTEXT_RULES.md": "layers/02_context/CONTEXT_RULES.md",
+        "FILE_SCOPE_RULES.md": "layers/03_file_scope/FILE_SCOPE_RULES.md",
+        "HIGH_RISK_FILES.md": "layers/03_file_scope/HIGH_RISK_FILES.md",
+        "ROLE_MATRIX.md": "layers/04_roles_review/ROLE_MATRIX.md",
+        "REVIEW_MATRIX.md": "layers/04_roles_review/REVIEW_MATRIX.md",
+        "MODEL_ROUTING.md": "layers/04_roles_review/MODEL_ROUTING.md",
+        "templates/review_template.md": "layers/04_roles_review/templates/review_template.md",
+        "docs/agent/ACI_TOOL_CONTRACTS.md": "layers/05_action_aci/ACI_TOOL_CONTRACTS.md",
+        "scripts/agent/view_file.sh": "layers/05_action_aci/scripts/agent/view_file.sh",
+        "scripts/agent/search_code.sh": "layers/05_action_aci/scripts/agent/search_code.sh",
+        "scripts/agent/safe_edit_check.sh": "layers/05_action_aci/scripts/agent/safe_edit_check.sh",
+        "scripts/agent/run_safe_command.sh": "layers/05_action_aci/scripts/agent/run_safe_command.sh",
+        "scripts/agent/context_pack.sh": "layers/05_action_aci/scripts/agent/context_pack.sh",
+        "VERIFICATION_MATRIX.md": "layers/06_verification/VERIFICATION_MATRIX.md",
+        "docs/agent/TESTING_GUIDE.md": "layers/06_verification/TESTING_GUIDE.md",
+        "docs/agent/DEBUG_GUIDE.md": "layers/06_verification/DEBUG_GUIDE.md",
+        "RISK_CONTROL.md": "layers/07_risk_release/RISK_CONTROL.md",
+        "IOS_RELEASE_CHECKLIST.md": "layers/07_risk_release/IOS_RELEASE_CHECKLIST.md",
+        "templates/manual_approval.md": "layers/07_risk_release/templates/manual_approval.md",
+        "STATE.md": "layers/08_memory_state/STATE.md",
+        "FAILURE_LOG.md": "layers/08_memory_state/FAILURE_LOG.md",
+        "DECISIONS.md": "layers/08_memory_state/DECISIONS.md",
+        "GIT_WORKFLOW.md": "layers/08_memory_state/GIT_WORKFLOW.md",
+        "docs/agent/WORKFLOW_CHAIN.md": "layers/09_workflows/WORKFLOW_CHAIN.md",
+        "docs/agent/BOOTSTRAP.md": "layers/09_workflows/BOOTSTRAP.md",
+        "examples/task_docs_only.md": "layers/10_examples/task_docs_only.md",
+        "examples/task_flutter_ui.md": "layers/10_examples/task_flutter_ui.md",
+        "examples/task_firebase_rules.md": "layers/10_examples/task_firebase_rules.md",
+        "examples/task_swift_bridge.md": "layers/10_examples/task_swift_bridge.md",
+        "examples/task_release_prep.md": "layers/10_examples/task_release_prep.md",
+        "examples/codex_prompts.md": "layers/10_examples/codex_prompts.md",
+        "templates/pr_description.md": "layers/10_examples/templates/pr_description.md",
+    }
+    for src, dst in moves.items():
+        move_file(src, dst)
+
+    overwrite(OUT / "README.md", LAYERED_README)
+    overwrite(OUT / "START_HERE.md", START_HERE)
+    overwrite(OUT / "CALL_GRAPH.md", CALL_GRAPH)
+    overwrite(OUT / "AGENTS.md", LAYER_AGENTS)
+    overwrite(OUT / "FRAMEWORK_SPEC.md", LAYERED_FRAMEWORK_SPEC)
+    overwrite(OUT / "FULL_TUTORIAL.md", LAYERED_TUTORIAL)
+    write_layer_readmes()
+    write_layered_validator()
+
+    for rel in ("docs", "examples", "templates"):
+        path = OUT / rel
+        if path.exists():
+            shutil.rmtree(path)
+    agent_scripts = OUT / "scripts" / "agent"
+    if agent_scripts.exists():
+        shutil.rmtree(agent_scripts)
 
 
 def main() -> int:
@@ -1776,6 +2419,7 @@ def main() -> int:
     write("scripts/agent/safe_edit_check.sh", SAFE_EDIT, executable=True)
     write("scripts/agent/run_safe_command.sh", RUN_SAFE, executable=True)
     write("scripts/agent/context_pack.sh", CONTEXT_PACK, executable=True)
+    restructure_layers()
     print(f"wrote standalone iOS app development harness to {OUT}")
     return 0
 
