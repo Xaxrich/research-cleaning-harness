@@ -141,3 +141,36 @@ framework_summaries 5
 mechanism_group_docs 7
 failure_mode_docs 25
 ```
+
+## 2026-05-14 Standalone iOS App Development Harness Check
+
+Fresh commands executed from `/Volumes/xtaxrich/03-TEMPLATES/xtaxharness/research_cleaning_harness`:
+
+```bash
+python3 ios_app_development_harness/scripts/validate_harness.py
+python3 generated/ios_app_harness/scripts/validate_harness.py
+python3 scripts/validate_source_cards.py
+python3 scripts/validate_yaml.py
+python3 scripts/validate_clean_data.py
+python3 -m unittest discover tests
+```
+
+Observed output:
+
+```text
+validated standalone ios app development harness, failures: 0
+validated ios_app_harness, failures: 0
+validated 134 source card(s), failures: 0
+validated 1 yaml file(s), failures: 0
+validated clean data, failures: 0
+Ran 14 tests ... OK
+```
+
+Additional audit:
+
+```text
+standalone_harness_path ios_app_development_harness/
+primary_tutorial ios_app_development_harness/FULL_TUTORIAL.md
+framework_spec ios_app_development_harness/FRAMEWORK_SPEC.md
+install_target_name agent_harness/
+```

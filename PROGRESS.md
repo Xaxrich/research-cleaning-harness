@@ -18,6 +18,8 @@ Total mechanism records: 625
 
 Generated iOS Harness target rows: 629
 
+Standalone iOS App Development Harness: `ios_app_development_harness/`
+
 ## Completed
 
 - Built the Research Cleaning Harness skeleton and schema.
@@ -30,6 +32,7 @@ Generated iOS Harness target rows: 629
 - Added validation scripts and unit tests for Source Card schema, YAML, clean-data consistency and inventory behavior.
 - Generated a lightweight fused iOS App Harness from the clean mechanism index.
 - Generated framework summaries, mechanism group docs, failure-mode docs and iOS Harness mapping docs.
+- Generated a standalone iOS App Development Harness that can be copied directly into a real app repo.
 - Published the project to public GitHub via SSH.
 
 ## Current Clean Outputs
@@ -46,6 +49,9 @@ Generated iOS Harness target rows: 629
 | gstack conflicts | `output/conflicts/gstack_conflicts.md` |
 | SWE-agent conflicts | `output/conflicts/swe_agent_conflicts.md` |
 | Generated iOS Harness | `generated/ios_app_harness/` |
+| Standalone Development Harness | `ios_app_development_harness/` |
+| Standalone Tutorial | `ios_app_development_harness/FULL_TUTORIAL.md` |
+| Standalone Framework Spec | `ios_app_development_harness/FRAMEWORK_SPEC.md` |
 | Source-to-harness trace | `generated/ios_app_harness/data/source_to_harness_trace.jsonl` |
 | Harness mapping docs | `output/ios_harness_mapping/` |
 | Framework summaries | `output/frameworks/` |
@@ -58,6 +64,7 @@ Latest fresh validation performed after lightweight iOS Harness generation:
 
 | command | result |
 |---|---|
+| `python3 research_cleaning_harness/ios_app_development_harness/scripts/validate_harness.py` | `validated standalone ios app development harness, failures: 0` |
 | `python3 research_cleaning_harness/generated/ios_app_harness/scripts/validate_harness.py` | `validated ios_app_harness, failures: 0` |
 | `python3 research_cleaning_harness/scripts/validate_source_cards.py` | `validated 134 source card(s), failures: 0` |
 | `python3 research_cleaning_harness/scripts/validate_yaml.py` | `validated 1 yaml file(s), failures: 0` |
@@ -75,4 +82,4 @@ Public repository: `https://github.com/Xaxrich/research-cleaning-harness`
 
 ## Next Step
 
-Review `generated/ios_app_harness/` against a real iOS app repo, then copy/adapt the v0.1 docs into that repo before enabling v0.5 scripts.
+Copy `ios_app_development_harness/` into a real iOS app repo as `agent_harness/`, then follow `FULL_TUTORIAL.md`.

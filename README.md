@@ -2,6 +2,20 @@
 
 Research Cleaning Harness is a file-by-file cleaning pipeline for turning raw framework research into traceable, reusable data assets for a future iOS App Harness.
 
+The standalone, ready-to-use development framework is:
+
+```text
+ios_app_development_harness/
+```
+
+If your goal is to use the final iOS app development harness rather than study the research process, start there:
+
+```text
+ios_app_development_harness/README.md
+ios_app_development_harness/FULL_TUTORIAL.md
+ios_app_development_harness/FRAMEWORK_SPEC.md
+```
+
 The rule is simple: raw files are evidence, Source Cards are normalized assets, conflict ledgers record synthesis risks, and later Codex work should read clean outputs before raw material.
 
 ## Current Scope
@@ -29,6 +43,9 @@ Machine-readable outputs:
 
 | path | purpose |
 |---|---|
+| `ios_app_development_harness/` | standalone iOS app development harness ready to copy into a real repo |
+| `ios_app_development_harness/FULL_TUTORIAL.md` | detailed tutorial covering design, usage, task flow, and decisions |
+| `ios_app_development_harness/FRAMEWORK_SPEC.md` | standalone framework design spec and rationale |
 | `LEARNER_GUIDE.md` | from-zero guide for learning and applying the harness |
 | `STATE.md` | current phase, completed frameworks, next framework |
 | `TASKS.md` | task history and acceptance notes |
@@ -52,6 +69,7 @@ Machine-readable outputs:
 Fresh validation commands run during the latest confirmation:
 
 ```bash
+python3 research_cleaning_harness/ios_app_development_harness/scripts/validate_harness.py
 python3 research_cleaning_harness/generated/ios_app_harness/scripts/validate_harness.py
 python3 research_cleaning_harness/scripts/validate_source_cards.py
 python3 research_cleaning_harness/scripts/validate_yaml.py
@@ -62,6 +80,7 @@ python3 -m unittest discover research_cleaning_harness/tests
 Expected current results:
 
 ```text
+validated standalone ios app development harness, failures: 0
 validated ios_app_harness, failures: 0
 validated 134 source card(s), failures: 0
 validated 1 yaml file(s), failures: 0
@@ -79,9 +98,10 @@ AppleDouble metadata files named `._*` are ignored by validators and `.gitignore
 
 ## Next Work
 
-Review and adapt the generated lightweight harness against a real iOS app repo:
+Use the standalone harness in a real iOS app repo:
 
-1. Start at `LEARNER_GUIDE.md`.
-2. Then read `generated/ios_app_harness/README.md`.
-3. Use `output/ios_harness_mapping/source_to_harness_trace.md` to audit how each Source Card influenced the harness.
-4. Copy/adapt v0.1 docs before enabling v0.5 scripts or v1.0 runtime ideas.
+1. Copy `ios_app_development_harness/` into the target repo as `agent_harness/`.
+2. Read `agent_harness/FULL_TUTORIAL.md`.
+3. Adapt `PRODUCT_SPEC.md`, `CONTEXT_INDEX.md`, `FILE_SCOPE_RULES.md`, and `VERIFICATION_MATRIX.md`.
+4. Create the first task in `TASKS.md`.
+5. Let Codex work through `AGENTS.md` and the task card.
