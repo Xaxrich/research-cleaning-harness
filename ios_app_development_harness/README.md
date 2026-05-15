@@ -15,6 +15,7 @@ agent_harness/
 
   layers/
     00_goal/            # 项目目标、产品边界
+    01_planning/        # 方案规划、任务拆分、用户确认
     01_task/            # 任务卡、任务入口
     02_context/         # 上下文读取规则
     03_file_scope/      # allowed/read-only/forbidden 文件范围
@@ -31,6 +32,7 @@ agent_harness/
 
 ```text
 00_goal
+  -> 01_planning
   -> 01_task
   -> 02_context
   -> 03_file_scope
@@ -54,10 +56,16 @@ python3 agent_harness/scripts/validate_harness.py
 然后按顺序适配：
 
 ```text
+layers/00_goal/DISCOVERY_GATE.md
+layers/00_goal/PRODUCT_BRIEF.md
 layers/00_goal/PRODUCT_SPEC.md
+layers/01_planning/SOLUTION_PLAN.md
+layers/01_planning/TASK_BREAKDOWN.md
 layers/02_context/CONTEXT_INDEX.md
 layers/03_file_scope/FILE_SCOPE_RULES.md
 layers/06_verification/VERIFICATION_MATRIX.md
+layers/06_verification/MODULE_VERIFICATION_POLICY.md
+layers/06_verification/SIMULATOR_TEST_POLICY.md
 layers/07_risk_release/IOS_RELEASE_CHECKLIST.md
 ```
 
@@ -66,4 +74,6 @@ layers/07_risk_release/IOS_RELEASE_CHECKLIST.md
 - v0.1 是文档规则和任务纪律。
 - v0.5 是脚本辅助。
 - v1.0 才是 runtime enforcement。
-- 任何任务都必须有文件范围、验证命令和恢复路径。
+- 任何实现任务开始前都必须有产品确认和方案确认。
+- 任何任务都必须有文件范围、验证命令、验证等级和恢复路径。
+- 用户可见 iOS 行为默认需要模拟器或真机验证证据。

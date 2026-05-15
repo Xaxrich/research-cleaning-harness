@@ -13,7 +13,7 @@ FRAMEWORK_SPEC.md
 不要先钻进所有细节。先理解层级：
 
 ```text
-00_goal -> 01_task -> 02_context -> 03_file_scope -> 04_roles_review -> 05_action_aci -> 06_verification -> 07_risk_release -> 08_memory_state
+00_goal -> 01_planning -> 01_task -> 02_context -> 03_file_scope -> 04_roles_review -> 05_action_aci -> 06_verification -> 07_risk_release -> 08_memory_state
 ```
 
 ## 2. 安装到真实项目
@@ -32,15 +32,21 @@ python3 agent_harness/scripts/validate_harness.py
 
 | order | file | what to fill |
 |---|---|---|
-| 1 | `layers/00_goal/PRODUCT_SPEC.md` | app 目标、用户、技术栈、风险 |
-| 2 | `layers/02_context/CONTEXT_INDEX.md` | lib/ios/test/firebase 等真实路径 |
-| 3 | `layers/03_file_scope/FILE_SCOPE_RULES.md` | allowed/read-only/forbidden 默认规则 |
-| 4 | `layers/06_verification/VERIFICATION_MATRIX.md` | 项目真实验证命令 |
-| 5 | `layers/07_risk_release/IOS_RELEASE_CHECKLIST.md` | release、privacy、signing 流程 |
+| 1 | `layers/00_goal/DISCOVERY_GATE.md` | 需求澄清问题和阻塞条件 |
+| 2 | `layers/00_goal/PRODUCT_BRIEF.md` | 用户确认过的产品 brief |
+| 3 | `layers/00_goal/PRODUCT_SPEC.md` | app 目标、用户、技术栈、风险 |
+| 4 | `layers/01_planning/SOLUTION_PLAN.md` | 技术方案、模块计划、验证策略 |
+| 5 | `layers/01_planning/TASK_BREAKDOWN.md` | 模块到任务卡的拆分 |
+| 6 | `layers/02_context/CONTEXT_INDEX.md` | lib/ios/test/firebase 等真实路径 |
+| 7 | `layers/03_file_scope/FILE_SCOPE_RULES.md` | allowed/read-only/forbidden 默认规则 |
+| 8 | `layers/06_verification/VERIFICATION_MATRIX.md` | 项目真实验证命令 |
+| 9 | `layers/06_verification/SIMULATOR_TEST_POLICY.md` | 什么时候必须跑模拟器/真机 |
+| 10 | `layers/07_risk_release/IOS_RELEASE_CHECKLIST.md` | release、privacy、signing 流程 |
 
 ## 4. 第一个任务
 
 在 `layers/01_task/TASKS.md` 写一个 docs-only task。不要一开始改业务代码。
+实现类任务必须等 `PRODUCT_BRIEF.md`、`SOLUTION_PLAN.md` 和 `USER_CONFIRMATION.md` 确认后再创建。
 
 ```yaml
 task_id: TASK-001
@@ -80,17 +86,27 @@ rollback_plan: revert product spec changes
 
 只允许修改当前任务的 allowed_files。
 完成前运行 verification_commands。
+用户可见 UI 改动需要按 SIMULATOR_TEST_POLICY.md 给出模拟器/真机证据。
+完成后更新 RUN_TRACE.md。
 ```
 
 ## 6. 正常任务调用逻辑
 
 ```text
-01_task/TASKS.md
+00_goal/DISCOVERY_GATE.md
+  -> 00_goal/PRODUCT_BRIEF.md
+  -> 01_planning/SOLUTION_PLAN.md
+  -> 01_planning/TASK_BREAKDOWN.md
+  -> 01_planning/USER_CONFIRMATION.md
+  -> 01_task/TASKS.md
   -> 02_context/CONTEXT_INDEX.md
   -> 03_file_scope/FILE_SCOPE_RULES.md
   -> 04_roles_review/ROLE_MATRIX.md
   -> 05_action_aci/ACI_TOOL_CONTRACTS.md
   -> 06_verification/VERIFICATION_MATRIX.md
+  -> 06_verification/MODULE_VERIFICATION_POLICY.md
+  -> 06_verification/SIMULATOR_TEST_POLICY.md
+  -> 08_memory_state/RUN_TRACE.md
   -> 08_memory_state/STATE.md
 ```
 
@@ -120,15 +136,16 @@ release、signing、upload、production Firebase、privacy 权限都属于高风
 
 学员不要一次学完所有文件。按层练：
 
-1. 00_goal：写产品目标。
-2. 01_task：写任务卡。
-3. 02_context：列出该读什么。
-4. 03_file_scope：列出能改什么。
-5. 04_roles_review：判断谁 review。
-6. 05_action_aci：用 view/search/safe_edit/run。
-7. 06_verification：跑验证。
-8. 07_risk_release：判断是否升级。
-9. 08_memory_state：记录状态和失败。
+1. 00_goal：澄清需求，写产品目标。
+2. 01_planning：写方案、拆模块、让用户确认。
+3. 01_task：写任务卡。
+4. 02_context：列出该读什么。
+5. 03_file_scope：列出能改什么。
+6. 04_roles_review：判断谁 review。
+7. 05_action_aci：用 view/search/safe_edit/run。
+8. 06_verification：跑验证，必要时跑模拟器/真机。
+9. 07_risk_release：判断是否升级。
+10. 08_memory_state：记录状态、失败和执行轨迹。
 
 ## 10. 判断学会的标准
 
@@ -136,8 +153,11 @@ release、signing、upload、production Firebase、privacy 权限都属于高风
 
 - 解释每个 layer 的职责。
 - 写一个合格 task card。
+- 在实现前完成产品和方案确认。
 - 正确区分 allowed/read-only/forbidden。
 - 从 CALL_GRAPH 走完整任务流程。
 - 为 Flutter/Swift/Firebase/release 任务选择不同验证。
+- 判断何时必须开模拟器或真机测试。
 - 失败时写 FAILURE_LOG 而不是盲改。
+- 完成时写 RUN_TRACE。
 - 知道 release_blocking 必须人工批准。

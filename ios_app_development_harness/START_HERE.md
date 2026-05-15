@@ -30,6 +30,9 @@
 
 1. 复制目录为 `agent_harness/`。
 2. 运行 `python3 agent_harness/scripts/validate_harness.py`。
-3. 填写 `layers/00_goal/PRODUCT_SPEC.md`。
-4. 适配项目路径和验证命令。
-5. 在 `layers/01_task/TASKS.md` 写第一个任务卡。
+3. 使用 `layers/00_goal/DISCOVERY_GATE.md` 澄清需求。
+4. 填写并确认 `layers/00_goal/PRODUCT_BRIEF.md` 和 `layers/00_goal/PRODUCT_SPEC.md`。
+5. 在 `layers/01_planning/SOLUTION_PLAN.md` 写方案，并让用户确认。
+6. 在 `layers/01_planning/TASK_BREAKDOWN.md` 拆模块和任务，并让用户确认。
+7. 适配项目路径和验证命令。
+8. 在 `layers/01_task/TASKS.md` 写第一个任务卡。

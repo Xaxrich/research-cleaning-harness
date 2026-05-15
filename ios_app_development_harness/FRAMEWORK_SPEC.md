@@ -5,22 +5,23 @@
 平铺文件对机器可读没有问题，但对学员和新进入的 agent 不够直观。层级结构把框架变成一张执行地图：
 
 ```text
-目标 -> 任务 -> 上下文 -> 文件范围 -> 角色/review -> 工具动作 -> 验证 -> 风险/release -> 状态记忆
+目标澄清 -> 方案规划 -> 任务 -> 上下文 -> 文件范围 -> 角色/review -> 工具动作 -> 验证 -> 风险/release -> 状态记忆
 ```
 
 每一层只回答一个问题：
 
 | layer | question |
 |---|---|
-| 00_goal | 我们到底在做什么产品？ |
+| 00_goal | 我们到底在做什么产品，用户确认了吗？ |
+| 01_planning | 我们准备怎么做，模块拆分确认了吗？ |
 | 01_task | 当前任务是什么，边界是什么？ |
 | 02_context | agent 应该读什么，不该读什么？ |
 | 03_file_scope | agent 可以改什么，不能改什么？ |
 | 04_roles_review | 谁负责，谁 review，什么模型能做？ |
 | 05_action_aci | agent 如何安全地看、搜、改、跑命令？ |
-| 06_verification | 如何证明任务完成？ |
+| 06_verification | 如何证明任务完成，是否需要模拟器/真机？ |
 | 07_risk_release | 什么动作必须升级或人工批准？ |
-| 08_memory_state | 中断、失败、决策如何记录？ |
+| 08_memory_state | 中断、失败、决策、执行轨迹如何记录？ |
 | 09_workflows | 端到端任务如何串起来？ |
 | 10_examples | 新手如何照着做？ |
 
@@ -58,6 +59,10 @@ layers/
 
 ```text
 Human request
+  -> discovery gate
+  -> product brief confirmation
+  -> solution plan confirmation
+  -> task breakdown confirmation
   -> task card
   -> context pack
   -> file scope check
@@ -65,14 +70,18 @@ Human request
   -> action/ACI
   -> verification
   -> review
+  -> run trace
   -> state update
 ```
 
 这个模型的目标是防止：
 
 - context pollution
+- premature implementation
+- unconfirmed product assumptions
 - wrong file edit
 - no test completion
+- fake simulator coverage
 - stuck loop
 - weak model overreach
 - release risk
